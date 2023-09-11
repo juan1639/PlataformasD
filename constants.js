@@ -21,7 +21,7 @@ const scroll = {
     scroll: 0,
     bgScroll: 0,
     scrollThresh: 200,
-    scroll_img: new Image()
+    scroll_img: new Image(constante.resolucion[0], constante.resolucion[1])
 }
 
 const marcadores = {
