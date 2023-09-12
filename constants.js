@@ -5,7 +5,20 @@ const constante = {
     resolucion: [800, 500],
     bsx: 50,
     bsy: 50,
-    fps: 60,
+    fps: 50,
+    gravedad: 1,
+    max_plataformas: 7,
+    plataformas_level_up: 70,
+    ancho_plataf_nivel: [
+        [2, 7],
+        [2, 6],
+        [2, 5],
+        [2, 5],
+        [2, 5],
+        [2, 4],
+        [2, 4],
+        [2, 4]
+    ],
     pausa_preparado: 5000
 }
 
@@ -21,7 +34,17 @@ const scroll = {
     scroll: 0,
     bgScroll: 0,
     scrollThresh: 200,
-    scroll_img: new Image(constante.resolucion[0], constante.resolucion[1])
+    scroll_img: new Image(constante.resolucion[0], constante.resolucion[1]),
+    scroll_img2: new Image(constante.resolucion[0], constante.resolucion[1])
+}
+
+const plataformasImg = {
+    medio: new Image(),
+    izq: new Image(),
+    dcha: new Image(),
+    izqS: new Image(),
+    dchaS: new Image(),
+    movil: new Image()
 }
 
 const marcadores = {
@@ -36,6 +59,8 @@ const marcadores = {
 }
 
 const estado = {
+    contador_plataformas: 0,
+    plataformas_visibles: [],
     actual: -1,
     gameover: false,
     nivel_superado: false
@@ -59,6 +84,7 @@ const sonidos = {
 export {
     constante, objeto, scroll, 
     canvas, ctx, marcadores, 
-    estado, colores, sonidos
+    estado, colores, sonidos,
+    plataformasImg
 };
 

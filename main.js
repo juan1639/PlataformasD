@@ -9,14 +9,22 @@ import {
     ctx,
     marcadores,
     estado,
-    sonidos
+    sonidos,
+    plataformasImg
 } from "./constants.js";
+
+// ----------------------------------------------------------------------------
+//  import --> Objetos clases
+// ----------------------------------------------------------------------------
+import {
+    Plataforma
+} from './plataforma.js';
 
 // ----------------------------------------------------------------------------
 //  import --> funciones varias
 // ----------------------------------------------------------------------------
 import {
-    dibuja_scroll, 
+    dibuja_scrolls, 
     checkComerFruta, 
     checkColision,
     comprobarNivelSuperado, 
@@ -35,8 +43,17 @@ import {
 window.onload = () => {
     canvas.width = constante.resolucion[0];
     canvas.height = constante.resolucion[1];
+
+    window.columnas = Math.floor(constante.resolucion[0] / constante.bsx);
+    window.filas = Math.floor(constante.resolucion[1] / constante.bsy);
     
     scroll.scroll_img.src = './img/fondo_cielo1.png';
+    scroll.scroll_img.src = './img/fondo_cielo2.png';
+
+    let plataforma = new Plataforma(0, filas - 1, 
+        columnas + 1, 0, constante.bsx, constante.bsy);
+    
+    estado.plataformas_visibles.push(plataforma);
 
     setInterval(() => {
         bucle_principal();
@@ -46,7 +63,13 @@ window.onload = () => {
 function bucle_principal() {
     borraCanvas();
 
-    dibuja_scroll(scroll.scroll_img);
+    dibuja_scrolls(scroll.scroll_img);
+
+    for (let i = 0; i < estado.plataformas_visibles.length; i ++) {
+        let dibujaPlataforma = estado.plataformas_visibles[i];
+        dibujaPlataforma.dibuja();
+        // console.log(dibujaPlataforma.rect.x, dibujaPlataforma.rect.y);
+    }
 }
 
 

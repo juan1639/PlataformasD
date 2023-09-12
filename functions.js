@@ -12,8 +12,10 @@ import {
 // ----------------------------------------------------------------------------
 //  Funciones varias
 // ----------------------------------------------------------------------------
-function dibuja_scroll(imagen) {
+function dibuja_scrolls(imagen) {
+    const resY = constante.resolucion[1];
     ctx.drawImage(imagen, 0, 0 + scroll.bgScroll);
+    ctx.drawImage(imagen, 0, 0 - resY + scroll.bgScroll);
 }
 
 // --------------------------------------------------------------------------
@@ -242,6 +244,6 @@ export {
 	nuevaPartida, elGameOver, mostrarMarcadores,
 	reescalaCanvas, borraCanvas, laPresentacion,
     nuevaPartidaLocationReload, playSonidos,
-    playSonidosLoop, dibuja_scroll
+    playSonidosLoop, dibuja_scrolls
 };
 
