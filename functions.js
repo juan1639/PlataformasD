@@ -9,38 +9,65 @@ import {
     sonidos
 } from './constants.js';
 
+import {
+    Plataforma
+} from './plataforma.js';
+
 // ----------------------------------------------------------------------------
 //  Funciones varias
 // ----------------------------------------------------------------------------
-function dibuja_scrolls(imagen) {
+function dibuja_scrolls(img1, img2) {
     const resY = constante.resolucion[1];
-    ctx.drawImage(imagen, 0, 0 + scroll.bgScroll);
-    ctx.drawImage(imagen, 0, 0 - resY + scroll.bgScroll);
+    // scroll.bgScroll ++;
+
+    ctx.drawImage(img1, 0, 0 + scroll.bgScroll);
+    ctx.drawImage(img2, 0, 0 - resY + scroll.bgScroll);
 }
 
-// --------------------------------------------------------------------------
-function checkComerFruta() {
-    let corr = 5;
+function reinstanciar_plataformas() {
+    const cont = estado.contador_plataformas;
+    const topP = constante.plataformas_level_up;
 
-    if (checkColision(objeto.fruta, objeto.pacman, corr) && estado.actual == 1 && !objeto.fruta.comido) {
-        objeto.fruta.comido = true;
-        objeto.fruta.showPtos = true;
-        objeto.fruta.showX = objeto.fruta.x 
-        objeto.fruta.showY = objeto.fruta.y
-        playSonidos(sonidos.eating_cherry);
+    if (estado.plataformas_visibles.length < constante.max_plataformas && cont < topP) {
+        estado.contador_plataformas ++;
 
-        marcadores.puntos += estadoFantasmas.ptosComeFruta;
+        let ancho;
+        let x;
+        const valor = constante.ancho_plataf_nivel[marcadores.nivel - 1];
+        const columnas = Math.floor(constante.resolucion[0] / constante.bsx);
 
-        setTimeout(() => {
-            objeto.fruta.showPtos = false;
+        if (estado.contador_plataformas === topP) {
+            ancho = columnas;
+            x = 0;
+        
+        } else {
+            x = Math.floor(Math.random() * columnas - 2);
+            if (marcadores.nivel < 9) {
+                ancho = Math.floor(Math.random() * (valor[1] - valor[0])) + 2;
 
-            setTimeout(() => {
-                objeto.fruta.comido = false
-                objeto.fruta.x = 9 * constante.bsx;
-                objeto.fruta.y = 11 * constante.bsy;
-            }, 9000);
+            } else {
+                ancho = Math.floor(Math.random() * 2) + 2;
+            }
+        }
 
-        }, 3000);
+        const indiceUltimaPlat = estado.plataformas_visibles.length - 1;
+        const ultimaPlataforma = Math.floor(estado.plataformas_visibles[indiceUltimaPlat].y / constante.bsy);
+        const espacioEntrePlataformas = Math.floor(Math.random() * 2) + 2;
+        const y = ultimaPlataforma - espacioEntrePlataformas;
+
+        // if (estado.contador_plataformas == topP) pulga.plataformaMETA = y;
+
+        let velX_rnd;
+        const num_rnd = Math.floor(Math.random() * 99);
+
+        if (num_rnd < marcadores.nivel * 4 && ancho < columnas - 2) {
+            velX_rnd = marcadores.nivel;
+        } else {
+            velX_rnd = 0;
+        }
+
+        let plataforma = new Plataforma(x, y, ancho, velX_rnd, constante.bsx, constante.bsy);
+        estado.plataformas_visibles.push(plataforma);
     }
 }
 
@@ -239,11 +266,12 @@ function laPresentacion(animaPacMan) {
 }
 
 export {
-	checkComerFruta, checkColision,
+	checkColision,
 	comprobarNivelSuperado, elNivelSuperado,
 	nuevaPartida, elGameOver, mostrarMarcadores,
 	reescalaCanvas, borraCanvas, laPresentacion,
     nuevaPartidaLocationReload, playSonidos,
-    playSonidosLoop, dibuja_scrolls
+    playSonidosLoop, dibuja_scrolls,
+    reinstanciar_plataformas
 };
 

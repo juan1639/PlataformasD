@@ -24,8 +24,7 @@ import {
 //  import --> funciones varias
 // ----------------------------------------------------------------------------
 import {
-    dibuja_scrolls, 
-    checkComerFruta, 
+    dibuja_scrolls,  
     checkColision,
     comprobarNivelSuperado, 
     elNivelSuperado,
@@ -37,7 +36,8 @@ import {
     laPresentacion,
     nuevaPartidaLocationReload,
     playSonidos,
-    playSonidosLoop
+    playSonidosLoop,
+    reinstanciar_plataformas
 } from './functions.js';
 
 window.onload = () => {
@@ -48,7 +48,7 @@ window.onload = () => {
     window.filas = Math.floor(constante.resolucion[1] / constante.bsy);
     
     scroll.scroll_img.src = './img/fondo_cielo1.png';
-    scroll.scroll_img.src = './img/fondo_cielo2.png';
+    scroll.scroll_img2.src = './img/fondo_cielo2.png';
 
     let plataforma = new Plataforma(0, filas - 1, 
         columnas + 1, 0, constante.bsx, constante.bsy);
@@ -63,7 +63,9 @@ window.onload = () => {
 function bucle_principal() {
     borraCanvas();
 
-    dibuja_scrolls(scroll.scroll_img);
+    reinstanciar_plataformas();
+
+    dibuja_scrolls(scroll.scroll_img, scroll.scroll_img2);
 
     for (let i = 0; i < estado.plataformas_visibles.length; i ++) {
         let dibujaPlataforma = estado.plataformas_visibles[i];
