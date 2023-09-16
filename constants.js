@@ -67,7 +67,8 @@ const estado = {
 }
 
 const colores = {
-    azul_fondo: 'rgb(134, 210, 230)', 
+    azul_fondo: 'rgb(134, 210, 230)',
+    blanco_nube: 'rgb(233, 233, 233)'
 }
 
 const sonidos = {

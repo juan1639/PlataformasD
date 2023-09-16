@@ -120,7 +120,7 @@ BOTONES < CONTROLES & NUEVA PARTIDA >
 }
 
 .controles {
-	height: 60px;
+	height: 90px;
 	color: black;
 	border-radius: 6px;
 	background: linear-gradient(#CCC, #777);

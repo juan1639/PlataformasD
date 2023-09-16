@@ -4,7 +4,7 @@ import {
     scroll,
     estado,
     plataformasImg
-} from "./constants.js";
+} from "../constants.js";
 
 export class Plataforma {
     constructor(x, y, ancho, velX_rnd, tx, ty) {

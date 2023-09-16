@@ -12,7 +12,7 @@ import {
 
 import {
     Plataforma
-} from './plataforma.js';
+} from './classes/plataforma.js';
 
 // ----------------------------------------------------------------------------
 //  Funciones varias
