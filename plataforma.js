@@ -38,7 +38,7 @@ export class Plataforma {
             } 
 
         } else {
-            for (segm of ancho) {
+            for (let i = 0; i < ancho; i ++) {
                 this.arrayPlataf.push(plataformasImg.movil);
             }
         }
@@ -54,8 +54,13 @@ export class Plataforma {
     }
 
     actualiza() {
-        this.rect.y += scroll.scroll;
+        this.rect.y += scroll.scroll + 1;
         this.rect.x += this.rect.velX;
+
+        if ((this.rect.x + this.rect.ancho * constante.bsx > constante.resolucion[0] && this.rect.velX > 0) ||
+            (this.rect.x < 0 && this.rect.velX < 0)) {
+                this.rect.velX *= -1;
+            } 
 
         if (this.rect.y > constante.resolucion[1]) {
             estado.plataformas_visibles.shift(); 

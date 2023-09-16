@@ -2,12 +2,12 @@
 //  Constantes & Variables
 // ----------------------------------------------------------------------------
 const constante = {
-    resolucion: [800, 500],
+    resolucion: [800, 550],
     bsx: 50,
     bsy: 50,
     fps: 50,
     gravedad: 1,
-    max_plataformas: 7,
+    max_plataformas: 5,
     plataformas_level_up: 70,
     ancho_plataf_nivel: [
         [2, 7],
@@ -67,10 +67,7 @@ const estado = {
 }
 
 const colores = {
-    paredColor: '#9D9D62',
-    paredColorOscuro: '#808052',
-    sueloColor: '#484848',
-    rojo: '#D32111'
+    azul_fondo: 'rgb(134, 210, 230)', 
 }
 
 const sonidos = {

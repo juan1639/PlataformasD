@@ -6,6 +6,7 @@ import {
     ctx,
     marcadores,
     estado,
+    colores,
     sonidos
 } from './constants.js';
 
@@ -18,12 +19,28 @@ import {
 // ----------------------------------------------------------------------------
 function dibuja_scrolls(img1, img2) {
     const resY = constante.resolucion[1];
-    // scroll.bgScroll ++;
+    scroll.bgScroll ++;
+
+    if (scroll.bgScroll >= resY * 2) scroll.bgScroll = 0;
 
     ctx.drawImage(img1, 0, 0 + scroll.bgScroll);
     ctx.drawImage(img2, 0, 0 - resY + scroll.bgScroll);
+    ctx.drawImage(img1, 0, 0 - resY * 2 + scroll.bgScroll);
+    ctx.drawImage(img2, 0, 0 - resY * 3 + scroll.bgScroll);
 }
 
+// ----------------------------------------------------------------------------
+function dibuja_plataformas() {
+    const nro_plataformas = estado.plataformas_visibles.length;
+
+    for (let i = 0; i < nro_plataformas; i ++) {
+        let dibujaPlataforma = estado.plataformas_visibles[i];
+        if (dibujaPlataforma) dibujaPlataforma.dibuja();
+        // console.log(dibujaPlataforma.rect.x, dibujaPlataforma.rect.y);
+    }
+}
+
+// ----------------------------------------------------------------------------
 function reinstanciar_plataformas() {
     const cont = estado.contador_plataformas;
     const topP = constante.plataformas_level_up;
@@ -41,7 +58,8 @@ function reinstanciar_plataformas() {
             x = 0;
         
         } else {
-            x = Math.floor(Math.random() * columnas - 2);
+            x = Math.floor(Math.random() * (columnas - 2));
+
             if (marcadores.nivel < 9) {
                 ancho = Math.floor(Math.random() * (valor[1] - valor[0])) + 2;
 
@@ -51,7 +69,7 @@ function reinstanciar_plataformas() {
         }
 
         const indiceUltimaPlat = estado.plataformas_visibles.length - 1;
-        const ultimaPlataforma = Math.floor(estado.plataformas_visibles[indiceUltimaPlat].y / constante.bsy);
+        const ultimaPlataforma = Math.floor(estado.plataformas_visibles[indiceUltimaPlat].rect.y / constante.bsy);
         const espacioEntrePlataformas = Math.floor(Math.random() * 2) + 2;
         const y = ultimaPlataforma - espacioEntrePlataformas;
 
@@ -59,9 +77,12 @@ function reinstanciar_plataformas() {
 
         let velX_rnd;
         const num_rnd = Math.floor(Math.random() * 99);
+        console.log(num_rnd);
 
-        if (num_rnd < marcadores.nivel * 4 && ancho < columnas - 2) {
-            velX_rnd = marcadores.nivel;
+        if (num_rnd <= marcadores.nivel * 9 && ancho < columnas - 2) {
+            velX_rnd = marcadores.nivel + 1;
+            if (x > columnas / 2) x = Math.floor(columnas / 2);
+
         } else {
             velX_rnd = 0;
         }
@@ -241,10 +262,10 @@ function reescalaCanvas() {
 
 // ------------------------------------------------------------------------
 function borraCanvas() {
-    canvas.width = canvas.width;
-    canvas.height = canvas.height;
-    // ctx.fillStyle = colores.sueloColor;
-    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // canvas.width = canvas.width;
+    // canvas.height = canvas.height;
+    ctx.fillStyle = colores.azul_fondo;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 //========================================================================
@@ -272,6 +293,6 @@ export {
 	reescalaCanvas, borraCanvas, laPresentacion,
     nuevaPartidaLocationReload, playSonidos,
     playSonidosLoop, dibuja_scrolls,
-    reinstanciar_plataformas
+    reinstanciar_plataformas, dibuja_plataformas
 };
 

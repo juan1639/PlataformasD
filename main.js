@@ -37,7 +37,8 @@ import {
     nuevaPartidaLocationReload,
     playSonidos,
     playSonidosLoop,
-    reinstanciar_plataformas
+    reinstanciar_plataformas,
+    dibuja_plataformas
 } from './functions.js';
 
 window.onload = () => {
@@ -66,13 +67,6 @@ function bucle_principal() {
     reinstanciar_plataformas();
 
     dibuja_scrolls(scroll.scroll_img, scroll.scroll_img2);
-
-    for (let i = 0; i < estado.plataformas_visibles.length; i ++) {
-        let dibujaPlataforma = estado.plataformas_visibles[i];
-        dibujaPlataforma.dibuja();
-        // console.log(dibujaPlataforma.rect.x, dibujaPlataforma.rect.y);
-    }
+    dibuja_plataformas();
 }
-
-
 
