@@ -108,6 +108,6 @@ function bucle_principal() {
     dibuja_scrolls(scroll.scroll_img, scroll.scroll_img2);
     dibuja_plataformas();
 
-    objeto.jugador.dibuja(); 
+    if (objeto.jugador) objeto.jugador.dibuja(); 
 }
 
