@@ -6,6 +6,7 @@ const constante = {
     bsx: 50,
     bsy: 50,
     fps: 50,
+    jug_alto: 100,
     gravedad: 1,
     max_plataformas: 5,
     plataformas_level_up: 70,
@@ -26,8 +27,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 const objeto = {
-    prota: null,
-    plataforma: null
+    jugador: null
 };
 
 const scroll = {

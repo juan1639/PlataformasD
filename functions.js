@@ -19,7 +19,7 @@ import {
 // ----------------------------------------------------------------------------
 function dibuja_scrolls(img1, img2) {
     const resY = constante.resolucion[1];
-    scroll.bgScroll ++;
+    // scroll.bgScroll ++;
 
     if (scroll.bgScroll >= resY * 2) scroll.bgScroll = 0;
 
@@ -93,11 +93,11 @@ function reinstanciar_plataformas() {
 }
 
 // --------------------------------------------------------------------------
-function checkColision(obj1, obj2, corr) {
-    return obj1.x + corr < obj2.x + obj2.ancho - corr && 
-            obj1.x + obj1.ancho - corr > obj2.x + corr &&
-            obj1.y + corr < obj2.y + obj2.alto - corr && 
-            obj1.y + obj1.alto - corr > obj2.y + corr;
+function checkColision(obj1, obj2, corr, dy) {
+    return obj1.rect.x + corr < obj2.rect.x + obj2.rect.ancho - corr && 
+            obj1.rect.x + obj1.rect.ancho - corr > obj2.rect.x + corr &&
+            obj1.rect.y + corr < obj2.rect.y + dy + obj2.rect.alto - corr && 
+            obj1.rect.y + obj1.rect.alto - corr > obj2.rect.y + dy + corr;
 }
 
 // --------------------------------------------------------------------------
