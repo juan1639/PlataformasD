@@ -2,7 +2,8 @@ import {
     constante,
     ctx,
     scroll,
-    estado
+    estado,
+    plataformasImg
 } from "../constants.js";
 
 import { checkColision } from "../functions.js";
@@ -63,22 +64,23 @@ export class Jugador {
     }
 
     dibuja() {
-        if (this.move.velY > 0 && this.move.velY < 2) {
-            ctx.drawImage(this.ssheet, 240, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+        // if (this.move.velY > 0 && this.move.velY < 2) {
+        //     ctx.drawImage(this.ssheet, 240, 0, this.rect.clipAncho, this.rect.clipAlto, 
+        //         this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
 
-        } else if (this.move.velY > 0) {
-            ctx.drawImage(this.ssheet, 160, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+        // } else if (this.move.velY > 0) {
+        //     ctx.drawImage(this.ssheet, 160, 0, this.rect.clipAncho, this.rect.clipAlto, 
+        //         this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
 
-        } else if (this.move.velY <= 0 && this.move.velY > -2) {
-            ctx.drawImage(this.ssheet, 0, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+        // } else if (this.move.velY <= 0 && this.move.velY > -2) {
+        //     ctx.drawImage(this.ssheet, 0, 0, this.rect.clipAncho, this.rect.clipAlto, 
+        //         this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
 
-        } else {
-            ctx.drawImage(this.ssheet, 80, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
-        } 
+        // } else {
+        //     ctx.drawImage(this.ssheet, 80, 0, this.rect.clipAncho, this.rect.clipAlto, 
+        //         this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+        // } 
+        ctx.drawImage(plataformasImg.movil, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
     }
 
     check_colisionPlataformas(dy) {
