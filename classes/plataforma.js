@@ -43,12 +43,10 @@ export class Plataforma {
             }
         }
 
-        this.ancho = ancho * this.tx;
-
         this.rect = {
             x: this.x,
             y: this.y,
-            ancho: ancho,
+            ancho: ancho * this.tx,
             alto: this.ty,
             velX: velX_rnd
         }
@@ -60,7 +58,7 @@ export class Plataforma {
         this.rect.y += scroll.scroll;
         this.rect.x += this.rect.velX;
 
-        if ((this.rect.x + this.rect.ancho * constante.bsx > constante.resolucion[0] && this.rect.velX > 0) ||
+        if ((this.rect.x + this.rect.ancho > constante.resolucion[0] && this.rect.velX > 0) ||
             (this.rect.x < 0 && this.rect.velX < 0)) {
                 this.rect.velX *= -1;
             } 
@@ -80,4 +78,3 @@ export class Plataforma {
         }
     }
 }
-

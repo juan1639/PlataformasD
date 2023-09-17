@@ -18,12 +18,12 @@ export class Jugador {
         this.rect = {
             x: left,
             y: top,
-            ancho: 100,
+            ancho: 80,
             alto: constante.jug_alto,
             clipX: 0,
             clipY: 0,
-            clipAncho: 27,
-            clipAlto: 27
+            clipAncho: 80,
+            clipAlto: 110
         }
 
         this.move = {
@@ -63,8 +63,22 @@ export class Jugador {
     }
 
     dibuja() {
-        ctx.drawImage(this.ssheet, 0, 0, this.rect.clipAncho, this.rect.clipAlto, 
-            this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+        if (this.move.velY > 0 && this.move.velY < 2) {
+            ctx.drawImage(this.ssheet, 240, 0, this.rect.clipAncho, this.rect.clipAlto, 
+                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+
+        } else if (this.move.velY > 0) {
+            ctx.drawImage(this.ssheet, 160, 0, this.rect.clipAncho, this.rect.clipAlto, 
+                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+
+        } else if (this.move.velY <= 0 && this.move.velY > -2) {
+            ctx.drawImage(this.ssheet, 0, 0, this.rect.clipAncho, this.rect.clipAlto, 
+                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+
+        } else {
+            ctx.drawImage(this.ssheet, 80, 0, this.rect.clipAncho, this.rect.clipAlto, 
+                this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+        } 
     }
 
     check_colisionPlataformas(dy) {
