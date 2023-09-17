@@ -47,6 +47,10 @@ const plataformasImg = {
     movil: new Image()
 }
 
+const jugadorImg = {
+    ssheet: new Image()
+}
+
 const marcadores = {
     puntos: 0,
     nivel: 1,
@@ -83,6 +87,6 @@ export {
     constante, objeto, scroll, 
     canvas, ctx, marcadores, 
     estado, colores, sonidos,
-    plataformasImg
+    plataformasImg, jugadorImg
 };
 
