@@ -11,11 +11,8 @@ import { checkColision } from "../functions.js";
 export class Jugador {
     constructor(left, top) {
 
-        jugadorImg.pulga1.src = '../img/pulga1.png';
-        jugadorImg.pulga2.src = '../img/pulga2.png';
-
-        this.img1 = jugadorImg.pulga1;
-        this.img2 = jugadorImg.pulga2;
+        jugadorImg.pulga1.src = './img/pulga1.png';
+        jugadorImg.pulga2.src = './img/pulga2.png';
 
         this.plataformaMETA = -999;
 
@@ -67,12 +64,12 @@ export class Jugador {
     }
 
     dibuja() {
-        if (this.img1) {
+        if (jugadorImg.pulga1) {
             if (this.move.velY > 0) {
-                ctx.drawImage(this.img1, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+                ctx.drawImage(jugadorImg.pulga1, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
             
             } else {
-                ctx.drawImage(this.img2, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+                ctx.drawImage(jugadorImg.pulga2, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
             } 
         }
     }
