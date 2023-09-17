@@ -11,10 +11,11 @@ import { checkColision } from "../functions.js";
 export class Jugador {
     constructor(left, top) {
 
-        jugadorImg.ssheet.src = '../img/Ssheet_jugador.png';
-        jugadorImg.ssheet.onload = () => {
-            this.ssheet = jugadorImg.ssheet;
-        }
+        jugadorImg.pulga1.src = '../img/pulga1.png';
+        jugadorImg.pulga2.src = '../img/pulga2.png';
+
+        this.img1 = jugadorImg.pulga1;
+        this.img2 = jugadorImg.pulga2;
 
         this.plataformaMETA = -999;
 
@@ -66,22 +67,12 @@ export class Jugador {
     }
 
     dibuja() {
-        if (this.ssheet) {
-            if (this.move.velY > 0 && this.move.velY < 2) {
-                ctx.drawImage(this.ssheet, 240, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                    this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
-    
-            } else if (this.move.velY > 0) {
-                ctx.drawImage(this.ssheet, 160, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                    this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
-    
-            } else if (this.move.velY <= 0 && this.move.velY > -2) {
-                ctx.drawImage(this.ssheet, 0, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                    this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
-    
+        if (this.img1) {
+            if (this.move.velY > 0) {
+                ctx.drawImage(this.img1, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+            
             } else {
-                ctx.drawImage(this.ssheet, 80, 0, this.rect.clipAncho, this.rect.clipAlto, 
-                    this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
+                ctx.drawImage(this.img2, this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
             } 
         }
     }

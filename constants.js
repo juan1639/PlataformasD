@@ -48,7 +48,8 @@ const plataformasImg = {
 }
 
 const jugadorImg = {
-    ssheet: new Image()
+    pulga1: new Image(),
+    pulga2: new Image()
 }
 
 const marcadores = {
