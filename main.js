@@ -3,6 +3,7 @@
 // ----------------------------------------------------------------------------
 import { 
     constante,
+    controles,
     objeto,
     scroll,
     canvas,
@@ -16,13 +17,8 @@ import {
 // ----------------------------------------------------------------------------
 //  import --> Objetos clases
 // ----------------------------------------------------------------------------
-import {
-    Plataforma
-} from './classes/plataforma.js';
-
-import {
-    Jugador
-} from './classes/jugador.js';
+import { Plataforma } from './classes/plataforma.js';
+import { Jugador } from './classes/jugador.js';
 
 // ----------------------------------------------------------------------------
 //  import --> funciones varias
@@ -49,23 +45,47 @@ import {
 //  EVENTOS Touch
 // ----------------------------------------------------------------------
 document.addEventListener('touchstart', (event) => {
-    console.log(event.target.id, event.targetTouches);
-    console.log(event);
+    // console.log(event.target.id, event.targetTouches);
+    // console.log(event);
 
-    if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
-        console.log('izq...');
-    } else if (event.target.id === 'boton__ri' || event.target.id === 'flecha__ri') {
-        console.log('dcha...');
+    if (estado.actual === -1) {
+        if (event.target.id === 'boton__newGame') {
+            estado.actual = 0;
+
+            setInterval(() => {
+                bucle_principal();
+            }, Math.floor(1000 / constante.fps));
+        }
+
+    } else if (estado.actual === 0) {
+        if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
+            console.log('izq...');
+            controles.touch_izq = true;
+            
+        } else if (event.target.id === 'boton__ri' || event.target.id === 'flecha__ri') {
+            console.log('dcha...');
+            controles.touch_dcha = true;
+
+        } else {
+            console.log('...');
+        }
     }
 });
 
 document.addEventListener('touchend', (event) => {
     console.log(event.target.id, event.targetTouches);
 
-    if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
-        console.log('endizq...');
-    } else if (event.target.id === 'boton__ri' || event.target.id === 'flecha__ri') {
-        console.log('enddcha...');
+    if (estado.actual === 0) {
+        if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
+            console.log('endizq...');
+            controles.touch_izq = false;
+    
+        } else if (event.target.id === 'boton__ri' || event.target.id === 'flecha__ri') {
+            console.log('enddcha...');
+            controles.touch_dcha = false;
+        } else {
+            console.log('... ..');
+        }
     }
 });
 
@@ -91,9 +111,7 @@ window.onload = () => {
     
     estado.plataformas_visibles.push(plataforma);
 
-    setInterval(() => {
-        bucle_principal();
-    }, Math.floor(1000 / constante.fps));
+    // ----------------------------------------------------
 }
 
 // ----------------------------------------------------------------------

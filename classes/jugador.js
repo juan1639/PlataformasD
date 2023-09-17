@@ -1,9 +1,11 @@
 import { 
     constante,
+    controles,
     ctx,
     scroll,
     estado,
-    jugadorImg
+    jugadorImg,
+    sonidos
 } from "../constants.js";
 
 import { checkColision } from "../functions.js";
@@ -28,7 +30,7 @@ export class Jugador {
 
         this.move = {
             acelX: 0.0,
-            velX: 7,
+            velX: 6,
             velY: -20,
             flip: false
         }
@@ -43,16 +45,16 @@ export class Jugador {
         let dx = 0;
         let dy = 0;
 
-        // dx = this.leer_teclado(dx);
-
+        dx = this.leer_teclado(dx);
+        
         this.move.velY += constante.gravedad;
         dy += this.move.velY;
 
-        // dx = check_limitesHor(dx);
+        // dx = this.check_limitesHor(dx);
         dy = this.check_colisionPlataformas(dy);
-        // dy = check_caerAlVacio(dy);
-        // check_colision_plataformaMeta();
-        // scroll.scroll = check_scrollThresh(scroll.scroll, dy);
+        // dy = this.check_caerAlVacio(dy);
+        // this.check_colision_plataformaMeta();
+        scroll.scroll = this.check_scrollThresh(scroll.scroll, dy);
 
         this.rect.x += dx;
         this.rect.y += dy + scroll.scroll;
@@ -64,6 +66,14 @@ export class Jugador {
 
     dibuja() {
         if (jugadorImg.ssheet) {
+            ctx.save();
+
+            if (this.move.flip) {
+                ctx.translate(this.rect.x + this.rect.ancho, 0);
+                ctx.scale(-1, 1);
+                ctx.translate(-this.rect.x, 0);
+            }
+
             if (this.move.velY > 0) {
                 ctx.drawImage(jugadorImg.ssheet, 640, 0, this.rect.clipAncho, this.rect.clipAlto, 
                     this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
@@ -71,7 +81,9 @@ export class Jugador {
             } else {
                 ctx.drawImage(jugadorImg.ssheet, 0, 0, this.rect.clipAncho, this.rect.clipAlto, 
                     this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
-            } 
+            }
+
+            ctx.restore();
         }
     }
 
@@ -83,6 +95,8 @@ export class Jugador {
                         this.rect.y = plataf.rect.y - this.rect.alto;
                         dy = 0;
                         this.move.velY = -20;
+                        sonidos.jump.play();
+                        sonidos.jump.volume = 0.1;
                     }
                 }
             }
@@ -91,8 +105,32 @@ export class Jugador {
         return dy;
     }
 
-    leer_teclado(dx) {
+    // check_caerAlVacio(dy) {
+    //     if (this.rect.y + dy > constante.resolucion[1] * 2) {
+    //         dy = 0;
+    //         estado.actual = 4;
+    //     }
 
+    //     return dy;
+    // }
+
+    check_scrollThresh(scrolling, dy) {
+        if (this.rect.y <= scroll.scrollThresh && this.move.velY < 0) scrolling = -dy;
+
+        return scrolling;
+    }
+
+    leer_teclado(dx) {
+        if (controles.touch_izq) {
+            this.move.acelX += 2;
+            dx = -(this.move.velX + this.move.acelX);
+
+        } else if (controles.touch_dcha) {
+            this.move.acelX += 2;
+            dx = this.move.velX + this.move.acelX;
+        }
+
+        return dx;
     }
 }
 

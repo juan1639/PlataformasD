@@ -5,7 +5,7 @@ const constante = {
     resolucion: [800, 550],
     bsx: 50,
     bsy: 50,
-    fps: 50,
+    fps: 60,
     jug_alto: 100,
     gravedad: 1,
     max_plataformas: 5,
@@ -25,6 +25,11 @@ const constante = {
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+
+const controles = {
+    touch_izq: false,
+    touch_dcha: false
+}
 
 const objeto = {
     jugador: null
@@ -76,6 +81,7 @@ const colores = {
 }
 
 const sonidos = {
+    jump: new Audio('./audio/jumpbros.ogg'),
     game_over: new Audio('./audio/gameoveretro.ogg'),
     pacman_dies: new Audio('./audio/pacmandies.ogg'),
     eating_cherry: new Audio('./audio/pacmaneatingcherry.mp3'),
@@ -87,6 +93,7 @@ export {
     constante, objeto, scroll, 
     canvas, ctx, marcadores, 
     estado, colores, sonidos,
-    plataformasImg, jugadorImg
+    plataformasImg, jugadorImg,
+    controles
 };
 

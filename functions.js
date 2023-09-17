@@ -19,7 +19,7 @@ import {
 // ----------------------------------------------------------------------------
 function dibuja_scrolls(img1, img2) {
     const resY = constante.resolucion[1];
-    // scroll.bgScroll ++;
+    scroll.bgScroll += scroll.scroll;
 
     if (scroll.bgScroll >= resY * 2) scroll.bgScroll = 0;
 
