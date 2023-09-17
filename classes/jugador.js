@@ -11,8 +11,10 @@ import { checkColision } from "../functions.js";
 export class Jugador {
     constructor(left, top) {
 
-        this.ssheet = jugadorImg.ssheet;
-        this.ssheet.src = '../img/Ssheet_jugador.png';
+        jugadorImg.ssheet.src = '../img/Ssheet_jugador.png';
+        jugadorImg.ssheet.onload = () => {
+            this.ssheet = jugadorImg.ssheet;
+        }
 
         this.plataformaMETA = -999;
 
