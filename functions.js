@@ -7,7 +7,8 @@ import {
     marcadores,
     estado,
     colores,
-    sonidos
+    sonidos,
+    pos_ini_jugador
 } from './constants.js';
 
 import {
@@ -146,15 +147,8 @@ function elNivelSuperado() {
     }, 5000);
 }
 
-// -------------------------------------------------------------------------
-function nuevaPartidaLocationReload() {
-    if (estado.gameover || estado.actual == 0) location.reload();
-}
-
-function nuevaPartida() {
-    estado.actual = 0;
-    estado.gameover = false;
-
+// ---------------------------------------------------------------------
+function rejugarNuevaPartida() {
     marcadores.puntos = 0;
     marcadores.scorePtos.innerHTML = `Puntos: ${marcadores.puntos}`;
     marcadores.nivel = 1;
@@ -162,41 +156,38 @@ function nuevaPartida() {
     marcadores.vidas = 3;
     marcadores.scoreVidas.innerHTML = `Vidas: ${marcadores.vidas}`;
 
-    estadoFantasmas.ptosComeFruta = 200;
-    objeto.fruta.comido = false;
-    estadoFantasmas.duracionAzules = 8000;
-    estado.nivel_superado = false;
-    objeto.contPuntitosComidos = 0;
+    objeto.jugador.rect.x = pos_ini_jugador.x;
+    objeto.jugador.rect.y = pos_ini_jugador.y;
+    objeto.jugador.move.acelX = 0.0;
+    objeto.jugador.move.velY = -20;
 
-    objeto.puntito.forEach(punto => {
-        punto.visible = true;
-    });
+    estado.plataformas_visibles = [];
+    estado.contador_plataformas = 0;
 
-    objeto.ptoGordo.forEach(gordo => {
-        gordo.visible = true;
-    });
+    const columnas = Math.floor(constante.resolucion[0] / constante.bsx);
+    const filas = Math.floor(constante.resolucion[1] / constante.bsy);
 
-    objeto.pacman.revivirPacMan();
-
-    objeto.fantasma[0].revivirFantasmas(3, 8, 0, 0);
-    objeto.fantasma[1].revivirFantasmas(5, 8, 1, 0);
-    objeto.fantasma[2].revivirFantasmas(9, 8, 2, 1);
-    objeto.fantasma[3].revivirFantasmas(11, 8, 3, 1);
+    let plataforma = new Plataforma(0, filas - 1, 
+        columnas + 1, 0, constante.bsx, constante.bsy);
+    
+    estado.plataformas_visibles.push(plataforma);
 }
 
 // -------------------------------------------------------------------------
 function elGameOver() {
-    if (!estado.gameover) return;
+    if (estado.actual !== 3) return;
 
-    const gradi = ctx.createLinearGradient(parseInt(resolucion[0] / 5) + 5, 
-        parseInt(resolucion[1] / 4), parseInt(resolucion[0] / 5) + 5, parseInt(resolucion[1] / 1.5));
+    const gradi = ctx.createLinearGradient(Math.floor(constante.resolucion[0] / 5) + 5, 
+        Math.floor(constante.resolucion[1] / 4), Math.floor(constante.resolucion[0] / 5) + 5, 
+        Math.floor(constante.resolucion[1] / 1.5));
     gradi.addColorStop(0, 'orangered');
     gradi.addColorStop(1, 'yellow');
 
-    ctx.font = '100px seriff';
+    ctx.font = '120px seriff';
+    ctx.textAlign = 'center';
     ctx.fillStyle = gradi;
-    ctx.fillText('Game Over', parseInt(resolucion[0] / 5) + 5, 
-        parseInt(resolucion[1] / 2));
+    ctx.fillText('Game Over', Math.floor(constante.resolucion[0] / 2), 
+        Math.floor(constante.resolucion[1] / 2));
 }
 
 // ------------------------------------------------------------------------
@@ -289,10 +280,9 @@ function laPresentacion(animaPacMan) {
 export {
 	checkColision,
 	comprobarNivelSuperado, elNivelSuperado,
-	nuevaPartida, elGameOver, mostrarMarcadores,
+	rejugarNuevaPartida, elGameOver, mostrarMarcadores,
 	reescalaCanvas, borraCanvas, laPresentacion,
-    nuevaPartidaLocationReload, playSonidos,
-    playSonidosLoop, dibuja_scrolls,
+    playSonidos, playSonidosLoop, dibuja_scrolls,
     reinstanciar_plataformas, dibuja_plataformas
 };
 

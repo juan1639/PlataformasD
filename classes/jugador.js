@@ -5,7 +5,8 @@ import {
     scroll,
     estado,
     jugadorImg,
-    sonidos
+    sonidos,
+    marcadores
 } from "../constants.js";
 
 import { checkColision } from "../functions.js";
@@ -37,13 +38,13 @@ export class Jugador {
     }
 
     actualiza() {
-
-        // -------------------------------------------------
+        // ----------------------------------------------
         //  RESETs (scroll, dx, dy)
-        // -------------------------------------------------
+        // ----------------------------------------------
         scroll.scroll = 0;
         let dx = 0;
         let dy = 0;
+        // ----------------------------------------------
 
         dx = this.leer_teclado(dx);
         
@@ -52,7 +53,7 @@ export class Jugador {
 
         // dx = this.check_limitesHor(dx);
         dy = this.check_colisionPlataformas(dy);
-        // dy = this.check_caerAlVacio(dy);
+        dy = this.check_caerAlVacio(dy);
         // this.check_colision_plataformaMeta();
         scroll.scroll = this.check_scrollThresh(scroll.scroll, dy);
 
@@ -65,6 +66,8 @@ export class Jugador {
     }
 
     dibuja() {
+        if (estado.actual != 0 && estado.actual != 1) return;
+
         if (jugadorImg.ssheet) {
             ctx.save();
 
@@ -88,6 +91,8 @@ export class Jugador {
     }
 
     check_colisionPlataformas(dy) {
+        if (estado.actual != 0) return;
+
         for (let plataf of estado.plataformas_visibles) {
             if (checkColision(plataf, this, 0, dy)) {
                 if (this.rect.y + this.rect.alto < plataf.rect.y + Math.floor(plataf.rect.alto / 2)) {
@@ -96,7 +101,7 @@ export class Jugador {
                         dy = 0;
                         this.move.velY = -20;
                         sonidos.jump.play();
-                        sonidos.jump.volume = 0.1;
+                        sonidos.jump.volume = 0.4;
                     }
                 }
             }
@@ -105,14 +110,24 @@ export class Jugador {
         return dy;
     }
 
-    // check_caerAlVacio(dy) {
-    //     if (this.rect.y + dy > constante.resolucion[1] * 2) {
-    //         dy = 0;
-    //         estado.actual = 4;
-    //     }
+    check_caerAlVacio(dy) {
+        if (estado.actual != 0) return;
 
-    //     return dy;
-    // }
+        if (this.rect.y + dy > constante.resolucion[1] * 2) {
+            dy = 0;
+            estado.actual = 2;  // Game Over
+            sonidos.game_over.play();
+            sonidos.game_over.volume = 0.5;
+
+            setTimeout(() => {
+                estado.actual = 3;  // Post-GameOver Rejugar?
+                marcadores.botonNewGame.style.display = 'flex';
+                console.log('Game Over!');
+            }, 4000);
+        }
+
+        return dy;
+    }
 
     check_scrollThresh(scrolling, dy) {
         if (this.rect.y <= scroll.scrollThresh && this.move.velY < 0) scrolling = -dy;
@@ -121,6 +136,8 @@ export class Jugador {
     }
 
     leer_teclado(dx) {
+        if (estado.actual != 0) return;
+
         if (controles.touch_izq) {
             this.move.acelX += 2;
             dx = -(this.move.velX + this.move.acelX);

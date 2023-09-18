@@ -44,7 +44,7 @@ CONTENEDORES < SCORE & BOTONES CONTROLES >
 	border: solid black;
 	border-width: 2px 2px 0 2px;
 	border-radius: 7px 7px 0 0;
-	font-size: 24px;
+	font-size: 26px;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px --var(--scores-textShadow);
 	color: var(--color-puntos);
@@ -109,14 +109,11 @@ BOTONES < CONTROLES & NUEVA PARTIDA >
 }
 
 .NewGame {
+	display: flex;
 	color: #FFFFA5; 
 	background-color: #ff3010;
 	text-shadow: 2px 2px 2px black;
 	box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.45);
-}
-
-.NewGame:hover {
-	background-color: #ff3010ad;
 }
 
 .controles {
@@ -187,7 +184,7 @@ RESPONSIVE
 	}
 
 	.contenedor2 {
-		font-size: 14px;
+		font-size: 18px;
 	}
 
 	.boton {
@@ -230,6 +227,10 @@ RESPONSIVE
 	.contenedor__main {
 		width: 375px;
 	}
+
+	.contenedor2 {
+		font-size: 16px;
+	}
 }
 
 @media (max-width: 374px) {
@@ -240,5 +241,9 @@ RESPONSIVE
 
 	.contenedor__main {
 		width: 320px;
+	}
+
+	.contenedor2 {
+		font-size: 14px;
 	}
 }

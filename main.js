@@ -11,7 +11,8 @@ import {
     marcadores,
     estado,
     sonidos,
-    plataformasImg
+    plataformasImg,
+    pos_ini_jugador
 } from "./constants.js";
 
 // ----------------------------------------------------------------------------
@@ -27,18 +28,17 @@ import {
     dibuja_scrolls,  
     checkColision,
     comprobarNivelSuperado, 
-    elNivelSuperado,
-    nuevaPartida, 
+    elNivelSuperado, 
     elGameOver, 
     mostrarMarcadores,
     reescalaCanvas, 
     borraCanvas, 
     laPresentacion,
-    nuevaPartidaLocationReload,
     playSonidos,
     playSonidosLoop,
     reinstanciar_plataformas,
-    dibuja_plataformas
+    dibuja_plataformas,
+    rejugarNuevaPartida
 } from './functions.js';
 
 // ----------------------------------------------------------------------
@@ -50,13 +50,22 @@ document.addEventListener('touchstart', (event) => {
 
     if (estado.actual === -1) {
         if (event.target.id === 'boton__newGame') {
-            estado.actual = 0;
+            estado.actual = 0;  // En juego
+            marcadores.botonNewGame.style.display = 'none';
+            clearInterval(estado.bucle_prejuego);
 
             setInterval(() => {
                 bucle_principal();
             }, Math.floor(1000 / constante.fps));
         }
 
+    } else if (estado.actual === 3) {
+        if (event.target.id === 'boton__newGame') {
+            estado.actual = 0;  // En juego
+            marcadores.botonNewGame.style.display = 'none';
+            rejugarNuevaPartida();
+        }
+    
     } else if (estado.actual === 0) {
         if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
             console.log('izq...');
@@ -103,19 +112,28 @@ window.onload = () => {
     scroll.scroll_img2.src = './img/fondo_cielo2.png';
 
     // ----------------------------------------------------
-    objeto.jugador = new Jugador(Math.floor(constante.resolucion[0] / 2),
-        Math.floor(constante.resolucion[1] - constante.bsy - constante.jug_alto));
+    objeto.jugador = new Jugador(pos_ini_jugador.x, pos_ini_jugador.y);
 
     let plataforma = new Plataforma(0, filas - 1, 
         columnas + 1, 0, constante.bsx, constante.bsy);
     
     estado.plataformas_visibles.push(plataforma);
 
-    // ----------------------------------------------------
+    // ---------------------------------------------------------
+    //  Bucle PRE-JUEGO
+    // ---------------------------------------------------------
+    estado.bucle_prejuego = setInterval(() => {
+        borraCanvas();
+
+        reinstanciar_plataformas();
+        dibuja_scrolls(scroll.scroll_img, scroll.scroll_img2);
+        dibuja_plataformas();
+
+    }, Math.floor(1000 / constante.fps));
 }
 
 // ----------------------------------------------------------------------
-//  BUCLE Principal
+//  BUCLE Principal (en juego)
 // ----------------------------------------------------------------------
 function bucle_principal() {
     borraCanvas();
@@ -127,5 +145,7 @@ function bucle_principal() {
     dibuja_plataformas();
 
     if (objeto.jugador) objeto.jugador.dibuja(); 
+
+    elGameOver();
 }
 

@@ -31,6 +31,11 @@ const controles = {
     touch_dcha: false
 }
 
+const pos_ini_jugador = {
+    x: Math.floor(constante.resolucion[0] / 2),
+    y: Math.floor(constante.resolucion[1] - constante.bsy - constante.jug_alto)
+}
+
 const objeto = {
     jugador: null
 };
@@ -67,12 +72,19 @@ const marcadores = {
     contenedorControles: document.getElementById('contenedor2__botonesControl')
 }
 
+// ---------------------------------------------------------------------
+// estado.actual:
+//                  -1 --> Pre-Juego (Presentacion / Menu Principal)
+//                   0 --> En juego 
+//                   1 --> Nivel superado (entre niveles) 
+//                   2 --> Game Over 
+//                   3 --> (Post-GameOver) Rejugar?
+// ---------------------------------------------------------------------
 const estado = {
+    bucle_prejuego: null,
     contador_plataformas: 0,
     plataformas_visibles: [],
-    actual: -1,
-    gameover: false,
-    nivel_superado: false
+    actual: -1
 }
 
 const colores = {
@@ -94,6 +106,6 @@ export {
     canvas, ctx, marcadores, 
     estado, colores, sonidos,
     plataformasImg, jugadorImg,
-    controles
+    controles, pos_ini_jugador
 };
 
