@@ -8,7 +8,8 @@ import {
     estado,
     colores,
     sonidos,
-    pos_ini_jugador
+    pos_ini_jugador,
+    controles
 } from './constants.js';
 
 import {
@@ -55,7 +56,7 @@ function reinstanciar_plataformas() {
         const columnas = Math.floor(constante.resolucion[0] / constante.bsx);
 
         if (estado.contador_plataformas === topP) {
-            ancho = columnas;
+            ancho = columnas + 3;
             x = 0;
         
         } else {
@@ -74,7 +75,7 @@ function reinstanciar_plataformas() {
         const espacioEntrePlataformas = Math.floor(Math.random() * 2) + 2;
         const y = ultimaPlataforma - espacioEntrePlataformas;
 
-        // if (estado.contador_plataformas == topP) pulga.plataformaMETA = y;
+        if (estado.contador_plataformas === topP) objeto.jugador.plataformaMETA = y;
 
         let velX_rnd;
         const num_rnd = Math.floor(Math.random() * 99);
@@ -95,21 +96,10 @@ function reinstanciar_plataformas() {
 
 // --------------------------------------------------------------------------
 function checkColision(obj1, obj2, corr, dy) {
-    return obj1.rect.x + corr < obj2.rect.x + obj2.rect.ancho - corr && 
-            obj1.rect.x + obj1.rect.ancho - corr > obj2.rect.x + corr &&
-            obj1.rect.y + corr < obj2.rect.y + dy + obj2.rect.alto - corr && 
-            obj1.rect.y + obj1.rect.alto - corr > obj2.rect.y + dy + corr;
-}
-
-// --------------------------------------------------------------------------
-function comprobarNivelSuperado() {
-    let puntitosMasGordos = objeto.array_puntitos.length + objeto.array_ptosGordos.length;
-
-    if (objeto.contPuntitosComidos >= puntitosMasGordos) {
-        return true;
-    } else {
-        return false;
-    }
+    return obj1.rect.x + corr.obj1_hor < obj2.rect.x + obj2.rect.ancho - corr.obj2_hor && 
+            obj1.rect.x + obj1.rect.ancho - corr.obj1_hor > obj2.rect.x + corr.obj2_hor &&
+            obj1.rect.y + corr.obj1_ver < obj2.rect.y + dy + obj2.rect.alto - corr.obj2_ver && 
+            obj1.rect.y + obj1.rect.alto - corr.obj1_ver > obj2.rect.y + dy + corr.obj2_ver;
 }
 
 // --------------------------------------------------------------------------
@@ -163,6 +153,9 @@ function rejugarNuevaPartida() {
 
     estado.plataformas_visibles = [];
     estado.contador_plataformas = 0;
+
+    controles.touch_dcha = false;
+    controles.touch_izq = false;
 
     const columnas = Math.floor(constante.resolucion[0] / constante.bsx);
     const filas = Math.floor(constante.resolucion[1] / constante.bsy);
@@ -235,12 +228,7 @@ function mostrarMarcadores() {
     }
 }
 
-// ------------------------------------------------------------------------
-function playSonidos(sonido) {
-    sonido.play();
-}
-
-function playSonidosLoop(sonido, loop, volumen) {
+function playSonidos(sonido, loop, volumen) {
     sonido.play();
     sonido.loop = loop;
     sonido.volume = volumen;
@@ -278,11 +266,10 @@ function laPresentacion(animaPacMan) {
 }
 
 export {
-	checkColision,
-	comprobarNivelSuperado, elNivelSuperado,
+	checkColision, elNivelSuperado,
 	rejugarNuevaPartida, elGameOver, mostrarMarcadores,
 	reescalaCanvas, borraCanvas, laPresentacion,
-    playSonidos, playSonidosLoop, dibuja_scrolls,
+    playSonidos, dibuja_scrolls,
     reinstanciar_plataformas, dibuja_plataformas
 };
 

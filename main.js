@@ -27,7 +27,6 @@ import { Jugador } from './classes/jugador.js';
 import {
     dibuja_scrolls,  
     checkColision,
-    comprobarNivelSuperado, 
     elNivelSuperado, 
     elGameOver, 
     mostrarMarcadores,
@@ -35,7 +34,6 @@ import {
     borraCanvas, 
     laPresentacion,
     playSonidos,
-    playSonidosLoop,
     reinstanciar_plataformas,
     dibuja_plataformas,
     rejugarNuevaPartida
@@ -99,6 +97,63 @@ document.addEventListener('touchend', (event) => {
 });
 
 // ----------------------------------------------------------------------
+//  EVENTOS Keydown / Keyup
+// ----------------------------------------------------------------------
+document.addEventListener('keydown', (event) => {
+    // console.log(event.target.id, event.targetTouches);
+    console.log(event.key);
+
+    if (estado.actual === -1) {
+        if (event.key === 'Enter') {
+            estado.actual = 0;  // En juego
+            marcadores.botonNewGame.style.display = 'none';
+            clearInterval(estado.bucle_prejuego);
+
+            setInterval(() => {
+                bucle_principal();
+            }, Math.floor(1000 / constante.fps));
+        }
+
+    } else if (estado.actual === 3) {
+        if (event.key === 'Enter') {
+            estado.actual = 0;  // En juego
+            marcadores.botonNewGame.style.display = 'none';
+            rejugarNuevaPartida();
+        }
+    
+    } else if (estado.actual === 0) {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowLeft') {
+            console.log('izq...');
+            controles.touch_izq = true;
+            
+        } else if (event.key === 'ArrowRight' || event.key === 'ArrowRight') {
+            console.log('dcha...');
+            controles.touch_dcha = true;
+
+        } else {
+            console.log('...');
+        }
+    }
+});
+
+document.addEventListener('keyup', (event) => {
+    //console.log(event.target.id, event.targetTouches);
+
+    if (estado.actual === 0) {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowLeft') {
+            console.log('endizq...');
+            controles.touch_izq = false;
+    
+        } else if (event.key === 'ArrowRight' || event.key === 'ArrowRight') {
+            console.log('enddcha...');
+            controles.touch_dcha = false;
+        } else {
+            console.log('... ..');
+        }
+    }
+});
+
+// ----------------------------------------------------------------------
 //  Funcion Inicializadora
 // ----------------------------------------------------------------------
 window.onload = () => {
@@ -115,7 +170,7 @@ window.onload = () => {
     objeto.jugador = new Jugador(pos_ini_jugador.x, pos_ini_jugador.y);
 
     let plataforma = new Plataforma(0, filas - 1, 
-        columnas + 1, 0, constante.bsx, constante.bsy);
+        columnas, 0, constante.bsx, constante.bsy);
     
     estado.plataformas_visibles.push(plataforma);
 

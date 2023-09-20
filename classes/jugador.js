@@ -9,7 +9,7 @@ import {
     marcadores
 } from "../constants.js";
 
-import { checkColision } from "../functions.js";
+import { checkColision, playSonidos } from "../functions.js";
 
 export class Jugador {
     constructor(left, top) {
@@ -35,6 +35,13 @@ export class Jugador {
             velY: -20,
             flip: false
         }
+
+        this.correcciones = {
+            obj1_hor: 0,
+            obj1_ver: 0,
+            obj2_hor: Math.floor(this.rect.ancho / 3),
+            obj2_ver: 0,
+        }
     }
 
     actualiza() {
@@ -51,10 +58,10 @@ export class Jugador {
         this.move.velY += constante.gravedad;
         dy += this.move.velY;
 
-        // dx = this.check_limitesHor(dx);
+        dx = this.check_limitesHor(dx);
         dy = this.check_colisionPlataformas(dy);
         dy = this.check_caerAlVacio(dy);
-        // this.check_colision_plataformaMeta();
+        this.check_colision_plataformaMeta();
         scroll.scroll = this.check_scrollThresh(scroll.scroll, dy);
 
         this.rect.x += dx;
@@ -66,8 +73,6 @@ export class Jugador {
     }
 
     dibuja() {
-        if (estado.actual != 0 && estado.actual != 1) return;
-
         if (jugadorImg.ssheet) {
             ctx.save();
 
@@ -91,17 +96,14 @@ export class Jugador {
     }
 
     check_colisionPlataformas(dy) {
-        if (estado.actual != 0) return;
-
         for (let plataf of estado.plataformas_visibles) {
-            if (checkColision(plataf, this, 0, dy)) {
+            if (checkColision(plataf, this, this.correcciones, dy)) {
                 if (this.rect.y + this.rect.alto < plataf.rect.y + Math.floor(plataf.rect.alto / 2)) {
                     if (this.move.velY > 0) {
                         this.rect.y = plataf.rect.y - this.rect.alto;
                         dy = 0;
                         this.move.velY = -20;
-                        sonidos.jump.play();
-                        sonidos.jump.volume = 0.4;
+                        playSonidos(sonidos.jump, false, 0.4);
                     }
                 }
             }
@@ -110,15 +112,25 @@ export class Jugador {
         return dy;
     }
 
+    check_colision_plataformaMeta() {
+        // console.log(this.rect.y, this.plataformaMETA);
+        if (estado.nivel_superado) return;
+
+        if (this.rect.y + this.rect.alto <= this.plataformaMETA && typeof this.rect.y === 'number') {
+            estado.nivel_superado = true;
+            playSonidos(sonidos.presentacion, false, 0.6);
+            console.log('nivel superado!');
+        }
+    }
+
     check_caerAlVacio(dy) {
-        if (estado.actual != 0) return;
+        if (estado.actual !== 0) return;
 
         if (this.rect.y + dy > constante.resolucion[1] * 2) {
             dy = 0;
             estado.actual = 2;  // Game Over
-            sonidos.game_over.play();
-            sonidos.game_over.volume = 0.5;
-
+            playSonidos(sonidos.game_over, false, 0.5);
+            
             setTimeout(() => {
                 estado.actual = 3;  // Post-GameOver Rejugar?
                 marcadores.botonNewGame.style.display = 'flex';
@@ -129,6 +141,16 @@ export class Jugador {
         return dy;
     }
 
+    check_limitesHor(dx) {
+        if (this.rect.x + dx < 0) dx = -this.rect.x;
+
+        if (this.rect.x + this.rect.ancho > constante.resolucion[0]) {
+            dx = constante.resolucion[0] - (this.rect.x + this.rect.ancho);
+        }
+
+        return dx;
+    }
+
     check_scrollThresh(scrolling, dy) {
         if (this.rect.y <= scroll.scrollThresh && this.move.velY < 0) scrolling = -dy;
 
@@ -136,14 +158,14 @@ export class Jugador {
     }
 
     leer_teclado(dx) {
-        if (estado.actual != 0) return;
-
-        if (controles.touch_izq) {
+        if (controles.touch_izq || controles.tecla_izq) {
             this.move.acelX += 2;
+            this.move.flip = true;
             dx = -(this.move.velX + this.move.acelX);
 
-        } else if (controles.touch_dcha) {
+        } else if (controles.touch_dcha || controles.tecla_dcha) {
             this.move.acelX += 2;
+            this.move.flip = false;
             dx = this.move.velX + this.move.acelX;
         }
 

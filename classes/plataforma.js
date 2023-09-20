@@ -1,5 +1,6 @@
 import { 
     constante,
+    objeto,
     ctx,
     scroll,
     estado,
@@ -57,6 +58,9 @@ export class Plataforma {
     actualiza() {
         this.rect.y += scroll.scroll;
         this.rect.x += this.rect.velX;
+
+        // identificar la plataforma META (por su longitud de todo el ancho)
+        if (this.rect.ancho > constante.resolucion[0] + this.tx) objeto.jugador.plataformaMETA = this.rect.y;
 
         if ((this.rect.x + this.rect.ancho > constante.resolucion[0] && this.rect.velX > 0) ||
             (this.rect.x < 0 && this.rect.velX < 0)) {
