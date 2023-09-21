@@ -9,7 +9,7 @@ const constante = {
     jug_alto: 100,
     gravedad: 1,
     max_plataformas: 5,
-    plataformas_level_up: 20,
+    plataformas_level_up: 70,
     ancho_plataf_nivel: [
         [2, 7],
         [2, 6],
@@ -45,7 +45,7 @@ const objeto = {
 const scroll = {
     scroll: 0,
     bgScroll: 0,
-    scrollThresh: 140,
+    scrollThresh: Math.floor(constante.resolucion[1] / 5),
     scroll_img: new Image(constante.resolucion[0], constante.resolucion[1]),
     scroll_img2: new Image(constante.resolucion[0], constante.resolucion[1])
 }

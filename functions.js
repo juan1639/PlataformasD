@@ -49,6 +49,8 @@ function reinstanciar_plataformas() {
 
     if (estado.plataformas_visibles.length < constante.max_plataformas && cont < topP) {
         estado.contador_plataformas ++;
+        console.log('cont_plat:', estado.contador_plataformas);
+
 
         let ancho;
         let x;
@@ -95,6 +97,8 @@ function reinstanciar_plataformas() {
 }
 
 // --------------------------------------------------------------------------
+//  Funcion para checkear colisiones entre objetos (parametros obj1 y obj2)
+// --------------------------------------------------------------------------
 function checkColision(obj1, obj2, corr, dy) {
     return obj1.rect.x + corr.obj1_hor < obj2.rect.x + obj2.rect.ancho - corr.obj2_hor && 
             obj1.rect.x + obj1.rect.ancho - corr.obj1_hor > obj2.rect.x + corr.obj2_hor &&
@@ -104,37 +108,13 @@ function checkColision(obj1, obj2, corr, dy) {
 
 // --------------------------------------------------------------------------
 function elNivelSuperado() {
-    if (!estado.nivel_superado) return;
-
-    marcadores.nivel ++;
-    marcadores.scoreNivel.innerHTML = `Nivel: ${marcadores.nivel}`;
-    estadoFantasmas.ptosComeFruta *= 2;
-    objeto.fruta.comido = false;
-    estadoFantasmas.duracionAzules -= marcadores.nivel * 1000;
-    estado.nivel_superado = false;
-    objeto.contPuntitosComidos = 0;
-    estado.actual = 3;
-    sonidos.presentacion.play();
-
-    if (estadoFantasmas.duracionAzules < 2000) estadoFantasmas.duracionAzules = 2000;
-
-    objeto.puntito.forEach(punto => {
-        punto.visible = true;
-    });
-
-    objeto.ptoGordo.forEach(gordo => {
-        gordo.visible = true;
-    });
-
+    
     setTimeout(() => {
-        estado.actual = 1;
-        objeto.pacman.revivirPacMan();
-
-        objeto.fantasma[0].revivirFantasmas(3, 8, 0, 0);
-        objeto.fantasma[1].revivirFantasmas(5, 8, 1, 0);
-        objeto.fantasma[2].revivirFantasmas(9, 8, 2, 1);
-        objeto.fantasma[3].revivirFantasmas(11, 8, 3, 1);
-    }, 5000);
+        marcadores.nivel ++;
+        marcadores.scoreNivel.innerHTML = `Nivel: ${marcadores.nivel}`;
+        estado.nivel_superado = false;
+        acciones_comunes_nivelSuperado_ReiniciarPartida();
+    }, 7000);
 }
 
 // ---------------------------------------------------------------------
@@ -146,6 +126,11 @@ function rejugarNuevaPartida() {
     marcadores.vidas = 3;
     marcadores.scoreVidas.innerHTML = `Vidas: ${marcadores.vidas}`;
 
+    acciones_comunes_nivelSuperado_ReiniciarPartida();
+}
+
+// -------------------------------------------------------------------------
+function acciones_comunes_nivelSuperado_ReiniciarPartida() {
     objeto.jugador.rect.x = pos_ini_jugador.x;
     objeto.jugador.rect.y = pos_ini_jugador.y;
     objeto.jugador.move.acelX = 0.0;
@@ -165,6 +150,7 @@ function rejugarNuevaPartida() {
     
     estado.plataformas_visibles.push(plataforma);
 }
+
 
 // -------------------------------------------------------------------------
 function elGameOver() {
@@ -228,6 +214,7 @@ function mostrarMarcadores() {
     }
 }
 
+// ------------------------------------------------------------------------
 function playSonidos(sonido, loop, volumen) {
     sonido.play();
     sonido.loop = loop;

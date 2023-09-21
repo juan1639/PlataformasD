@@ -43,34 +43,31 @@ import {
 //  EVENTOS Touch
 // ----------------------------------------------------------------------
 document.addEventListener('touchstart', (event) => {
-    // console.log(event.target.id, event.targetTouches);
-    // console.log(event);
+    // console.log(event.target.id, event.targetTouches, event);
+    let touch = event.target.id;
 
     if (estado.actual === -1) {
-        if (event.target.id === 'boton__newGame') {
+        if (touch === 'boton__newGame') {
             estado.actual = 0;  // En juego
             marcadores.botonNewGame.style.display = 'none';
             clearInterval(estado.bucle_prejuego);
-
-            setInterval(() => {
-                bucle_principal();
-            }, Math.floor(1000 / constante.fps));
+            crea_bucle_principal();
         }
 
     } else if (estado.actual === 3) {
-        if (event.target.id === 'boton__newGame') {
+        if (touch === 'boton__newGame') {
             estado.actual = 0;  // En juego
             marcadores.botonNewGame.style.display = 'none';
             rejugarNuevaPartida();
         }
     
     } else if (estado.actual === 0) {
-        if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
-            console.log('izq...');
+        if (touch === 'boton__le' || touch === 'flecha__le') {
+            // console.log('izq...');
             controles.touch_izq = true;
             
-        } else if (event.target.id === 'boton__ri' || event.target.id === 'flecha__ri') {
-            console.log('dcha...');
+        } else if (touch === 'boton__ri' || touch === 'flecha__ri') {
+            // console.log('dcha...');
             controles.touch_dcha = true;
 
         } else {
@@ -81,14 +78,15 @@ document.addEventListener('touchstart', (event) => {
 
 document.addEventListener('touchend', (event) => {
     console.log(event.target.id, event.targetTouches);
+    let touch = event.target.id;
 
     if (estado.actual === 0) {
-        if (event.target.id === 'boton__le' || event.target.id === 'flecha__le') {
-            console.log('endizq...');
+        if (touch === 'boton__le' || touch === 'flecha__le') {
+            // console.log('endizq...');
             controles.touch_izq = false;
     
-        } else if (event.target.id === 'boton__ri' || event.target.id === 'flecha__ri') {
-            console.log('enddcha...');
+        } else if (touch === 'boton__ri' || touch === 'flecha__ri') {
+            // console.log('enddcha...');
             controles.touch_dcha = false;
         } else {
             console.log('... ..');
@@ -102,32 +100,30 @@ document.addEventListener('touchend', (event) => {
 document.addEventListener('keydown', (event) => {
     // console.log(event.target.id, event.targetTouches);
     console.log(event.key);
+    let pulsacion = event.key;
 
     if (estado.actual === -1) {
-        if (event.key === 'Enter') {
+        if (pulsacion === 'Enter') {
             estado.actual = 0;  // En juego
             marcadores.botonNewGame.style.display = 'none';
             clearInterval(estado.bucle_prejuego);
-
-            setInterval(() => {
-                bucle_principal();
-            }, Math.floor(1000 / constante.fps));
+            crea_bucle_principal();
         }
 
     } else if (estado.actual === 3) {
-        if (event.key === 'Enter') {
+        if (pulsacion === 'Enter') {
             estado.actual = 0;  // En juego
             marcadores.botonNewGame.style.display = 'none';
             rejugarNuevaPartida();
         }
     
     } else if (estado.actual === 0) {
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowLeft') {
-            console.log('izq...');
+        if (pulsacion === 'ArrowLeft' || pulsacion === 'ArrowLeft') {
+            // console.log('izq...');
             controles.touch_izq = true;
             
-        } else if (event.key === 'ArrowRight' || event.key === 'ArrowRight') {
-            console.log('dcha...');
+        } else if (pulsacion === 'ArrowRight' || pulsacion === 'ArrowRight') {
+            // console.log('dcha...');
             controles.touch_dcha = true;
 
         } else {
@@ -152,6 +148,36 @@ document.addEventListener('keyup', (event) => {
         }
     }
 });
+
+// ----------------------------------------------------------------------
+//  EVENTO Click
+// ----------------------------------------------------------------------
+document.addEventListener('click', (event) => {
+    //console.log(event.target.id);
+
+    if (estado.actual === -1) {
+        if (event.target.id === 'boton__newGame') {
+            estado.actual = 0;  // En juego
+            marcadores.botonNewGame.style.display = 'none';
+            clearInterval(estado.bucle_prejuego);
+            crea_bucle_principal();
+        }
+    
+    } else if (estado.actual === 3) {
+        if (event.target.id === 'boton__newGame') {
+            estado.actual = 0;  // En juego
+            marcadores.botonNewGame.style.display = 'none';
+            rejugarNuevaPartida();
+        }
+    }
+});
+
+// ----------------------------------------------------------------------
+function crea_bucle_principal() {
+    setInterval(() => {
+        bucle_principal();
+    }, Math.floor(1000 / constante.fps));
+}
 
 // ----------------------------------------------------------------------
 //  Funcion Inicializadora

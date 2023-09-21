@@ -1,0 +1,806 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"play",
+				"playSonidosLoop"
+			],
+			[
+				"fu",
+				"fun"
+			],
+			[
+				"pa",
+				"pacman_dies"
+			],
+			[
+				"ju",
+				"justify-self"
+			],
+			[
+				"spa",
+				"space-between"
+			],
+			[
+				"jus",
+				"justify-self"
+			],
+			[
+				"flex",
+				"flex-wrap"
+			],
+			[
+				"ali",
+				"align-self"
+			],
+			[
+				"bot",
+				"botonesControl"
+			],
+			[
+				"nue",
+				"nuevaPartidaLocationReload"
+			],
+			[
+				"nu",
+				"nuevaPartida"
+			],
+			[
+				"lig",
+				"lightblue"
+			],
+			[
+				"conte",
+				"contenedor__main"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"tran",
+				"translate()"
+			],
+			[
+				"es",
+				"estadoFantasmas"
+			],
+			[
+				"est",
+				"estadoFantasmas"
+			],
+			[
+				"esta",
+				"estadoFantasmas"
+			],
+			[
+				"alig",
+				"align-self"
+			],
+			[
+				"sha",
+				"shadowOffSetX"
+			],
+			[
+				"box-s",
+				"box-sizing"
+			],
+			[
+				"borde",
+				"border"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"mos",
+				"mostrarGameOver"
+			],
+			[
+				"click",
+				"clicksArray"
+			],
+			[
+				"f",
+				"fantasmaColor"
+			],
+			[
+				"le",
+				"leerTecladoArray"
+			],
+			[
+				"mostra",
+				"mostrarPtos"
+			],
+			[
+				"man",
+				"manzanaY"
+			],
+			[
+				"ma",
+				"manzanaX"
+			],
+			[
+				"off",
+				"offSetY"
+			],
+			[
+				"dt",
+				"datosCompletos"
+			],
+			[
+				"can",
+				"canvasOjosFantasma"
+			],
+			[
+				"ca",
+				"canvasPacManRi"
+			],
+			[
+				"c",
+				"canvasPacManLe"
+			],
+			[
+				"canvasP",
+				"canvasPacManUp"
+			],
+			[
+				"pac",
+				"canvasPacMan"
+			],
+			[
+				"estad",
+				"estadoFantasmas"
+			],
+			[
+				"arr",
+				"array_ptosGordos"
+			],
+			[
+				"pto",
+				"ptoGordo"
+			],
+			[
+				"canvasF",
+				"canvasFruta"
+			],
+			[
+				"canv",
+				"canvasPacManRi"
+			],
+			[
+				"el",
+				"elGameOver"
+			],
+			[
+				"com",
+				"comprobarNivelSuperado"
+			],
+			[
+				"check",
+				"checkComerFruta"
+			],
+			[
+				"du",
+				"dibujaTodosPuntitos"
+			],
+			[
+				"di",
+				"dibujarFantasmas"
+			],
+			[
+				"con",
+				"contPuntitosComidos"
+			],
+			[
+				"pu",
+				"puntito"
+			],
+			[
+				"fa",
+				"fantasma"
+			],
+			[
+				"cons",
+				"constante"
+			],
+			[
+				"ptos",
+				"ptosComeFruta"
+			],
+			[
+				"ni",
+				"nivel_superado"
+			],
+			[
+				"nr",
+				"nro_filas"
+			],
+			[
+				"bs",
+				"bsy"
+			],
+			[
+				"n",
+				"nro_columnas"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"fl",
+				"flex-start"
+			],
+			[
+				"orang",
+				"orangered"
+			],
+			[
+				"yelow",
+				"yellowgreen"
+			],
+			[
+				"self",
+				"justify-self"
+			],
+			[
+				"gri",
+				"grid-template-rows"
+			],
+			[
+				"pla",
+				"PlataformaMETA"
+			],
+			[
+				"checkC",
+				"checkCaerAlVacio"
+			],
+			[
+				"gra",
+				"linear-gradient()"
+			],
+			[
+				"A",
+				"ArrowLeft"
+			],
+			[
+				"Arr",
+				"ArrowUp"
+			],
+			[
+				"cre",
+				"creaNuevoSegmento"
+			],
+			[
+				"mostr",
+				"mostrarPtos"
+			],
+			[
+				"grid-",
+				"grid-gap"
+			],
+			[
+				"te",
+				"teclaPulsada"
+			],
+			[
+				"contro",
+				"controls__UpDo"
+			],
+			[
+				"justify-",
+				"justify-items"
+			],
+			[
+				"ye",
+				"yellowgreen"
+			],
+			[
+				"red",
+				"indianred"
+			],
+			[
+				"bak",
+				"background-color"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"bord",
+				"border-style"
+			],
+			[
+				"li",
+				"link"
+			],
+			[
+				"vari",
+				"variable2"
+			],
+			[
+				"va",
+				"variable1"
+			],
+			[
+				"v",
+				"variable3"
+			],
+			[
+				"r",
+				"RESOLUCION"
+			],
+			[
+				"bus",
+				"busquedaPais"
+			],
+			[
+				"re",
+				"reInstanciasPlataformas"
+			],
+			[
+				"an",
+				"anchoPlataf_nivel"
+			],
+			[
+				"co",
+				"COLUMNAS"
+			],
+			[
+				"col",
+				"COLUMNAS"
+			],
+			[
+				"m",
+				"MAX_PLATAFORMAS"
+			],
+			[
+				"anim",
+				"animation-fill-mode"
+			],
+			[
+				"lan",
+				"lanzamientosSurikenPow"
+			],
+			[
+				"j",
+				"JoeMusashi"
+			],
+			[
+				"att",
+				"attrId"
+			],
+			[
+				"cr",
+				"creaElemento"
+			],
+			[
+				"se",
+				"setAttribute"
+			],
+			[
+				"kata",
+				"kataneando"
+			],
+			[
+				"ata",
+				"atancando"
+			],
+			[
+				"t",
+				"translateY()"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"list",
+				"lista_spritesAdibujar"
+			],
+			[
+				"tr",
+				"translateX()"
+			],
+			[
+				"e",
+				"ease-in-out"
+			],
+			[
+				"sc",
+				"scaleX()"
+			],
+			[
+				"gr",
+				"grid-template-columns"
+			],
+			[
+				"b",
+				"background-position"
+			],
+			[
+				"back",
+				"background-size"
+			],
+			[
+				"conti",
+				"continenteElegido"
+			],
+			[
+				"--azu",
+				"--azul-alpha8"
+			],
+			[
+				"fil",
+				"filtroContinente"
+			],
+			[
+				"--azul",
+				"--azul-alpha"
+			],
+			[
+				"backgrou",
+				"background-repeat"
+			],
+			[
+				"background-",
+				"background-size"
+			],
+			[
+				"sel",
+				"selectedIndex"
+			],
+			[
+				"sele",
+				"selecFondo"
+			],
+			[
+				"spe",
+				"separador__item"
+			],
+			[
+				"grid-t",
+				"grid-template-columns"
+			],
+			[
+				"po",
+				"poblacion"
+			],
+			[
+				"a",
+				"arrayCampos"
+			],
+			[
+				"in",
+				"divInfoPais"
+			],
+			[
+				"for",
+				"for"
+			],
+			[
+				"nom",
+				"nombrePaisAside"
+			],
+			[
+				"dark",
+				"darkgrey"
+			],
+			[
+				"al",
+				"algunNroMayorQue5"
+			],
+			[
+				"ar",
+				"arrayOriginal_2"
+			],
+			[
+				"msg",
+				"msgTipo"
+			],
+			[
+				"cap",
+				"capitalize2nd"
+			],
+			[
+				"cp",
+				"capitalize1st"
+			],
+			[
+				"capi",
+				"capitalize2nd"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/cex/JavaScript Proyects/JeffAporta/espacio3D.html",
+		"/C/Users/cex/Python Proyects/PulgaYT/main.py",
+		"/C/Users/cex/Python Proyects/PulgaYT/pulga2.py",
+		"/C/Users/cex/Java Projects/Main.java",
+		"/C/Users/cex/Java Projects/Main.class",
+		"/C/Users/cex/Java Projects/prueba.java",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeYT/snake.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeYT/snakeJs.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeYT/snakeStyle.css",
+		"/C/Users/cex/JavaScript Proyects/shorts/metodos array/pop.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/functions.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/constants.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacJon Js/PJ50x50/pacJonjsMob50x50.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacJon Js/pacClonjs.js",
+		"/C/Users/cex/Python Proyects/Curso Pygame/01Organizado/video 8 Sprite Sheet2/prg2.py",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/classes/fantasmas.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/fundamentos canvas/HTML5-Canvas-and-JavaScript-Games-for-Beginners/main.js",
+		"/C/Users/cex/Python Proyects/Curso Pygame/01Organizado/video 15 scroll coche/prg2.py",
+		"/C/Users/cex/Python Proyects/Curso Pygame/01Organizado/video 15 scroll coche/main.py",
+		"/C/Users/cex/JavaScript Proyects/Curso Javier/frontend-2518/frontend-2518/css/estilos.css",
+		"/C/Users/cex/JavaScript Proyects/Curso Javier/frontend-2518/frontend-2518/BOOTSTRAP/listado.html",
+		"/C/Users/cex/JavaScript Proyects/Curso Javier/frontend-2518/frontend-2518/BOOTSTRAP/formulario.html",
+		"/C/Users/cex/JavaScript Proyects/Curso Javier/frontend-2518/frontend-2518/BOOTSTRAP/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/style.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/classes/laberinto.js",
+		"/C/Users/cex/JavaScript Proyects/Curso Javier/frontend-2518/css/estilos.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/JonAPIrestcountries/main.css",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/public/js/classes/Player.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/public/js/classes/Particle.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/public/js/classes/Enemy.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/public/js/eventListeners.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/public/js/frontend.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/public/index.html",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/multiplayer-game/backend.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/Pacman Chris Courses/js/classes/PowerUp.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/Pacman Chris Courses/js/classes/Pellet.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/Pacman Chris Courses/js/classes/Ghost.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/Pacman Chris Courses/js/classes/Boundary.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/Pacman Chris Courses/js/classes/Player.js",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/Pacman Chris Courses/index.html",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/fundamentos canvas/HTML5-Canvas-and-JavaScript-Games-for-Beginners/index.html",
+		"/C/Users/cex/JavaScript Proyects/Chris Courses/fundamentos canvas/HTML5-Canvas-and-JavaScript-Games-for-Beginners/style.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/Snake/snakeStyle.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/Snake/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/classes/pacman.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/git-hub/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado3/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/canvasDraw/dibujaCanvas.js",
+		"/C/Users/cex/JavaScript Proyects/plantillas/Shinobi/joeMusashi git/joeMusashiJs.js",
+		"/C/Users/cex/JavaScript Proyects/plantillas/Shinobi/joeMusashi git/joeMusashiStyle.css",
+		"/C/Users/cex/JavaScript Proyects/Curso Javier/frontend-2518/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Proyects/PacClon Mejorado4/js/classes/fruta.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeOOP/snakeStyle.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeRYT/snakeStyle.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeOOP/snakeJs.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeOOP/snake.html",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion19_FetchAPI_POST/db.json",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion19_FetchAPI_POST/package.json",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion19_FetchAPI_POST/main.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion19_FetchAPI_POST/index.html",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion19_FetchAPI_POST/package-lock.json",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion19_FetchAPI_POST/main.css",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion18_FormData/index.html",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion18_FormData/main.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion18_FormData/main.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/canvasDraw/dibujaCanvas.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/classes/pacman.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/classes/laberinto.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/classes/fruta.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/classes/fantasmas.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/functions.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/js/constants.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado3/style.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/laberinto.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/fruta.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/dibujaCanvas.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/fantasmas.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/pacman.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/constants.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/functions.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado2/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/JonAPIrestcountries/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/JonAPIrestcountries/js/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/JonAPIrestcountries/js/constants.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/JonAPIrestcountries/js/constants2.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion13_Modulos/modulos-es6/funciones.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion13_Modulos/modulos-es6/app.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/constants.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/style.css",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/functions.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/dibujaCanvas.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/fantasmas.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/pacman.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/fruta.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/laberinto.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/main_novale.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion13_Modulos/modulos-node/convertidor-millas.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion13_Modulos/modulos-node/viaje.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/PacClon Mejorado/pacClonStyle.css",
+		"/C/Users/cex/JavaScript Proyects/shorts/metodos array/index.html",
+		"/C/Users/cex/JavaScript Proyects/shorts/metodos array/splice.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion7_Arrays/index.html",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion7_Arrays/main.css",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion7_Arrays/main.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion6_Ciclos/main.js",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion6_Ciclos/main.css",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion6_Ciclos/index.html",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion5_Funciones/index.html",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion5_Funciones/main.css",
+		"/C/Users/cex/JavaScript Proyects/emprinnos/fundamentosJS/Leccion5_Funciones/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeRYT/snakeJs.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeRYT/snake.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeRYT/index.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/SnakeRYT/main.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/Snake/snakeAll.html",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/Snake/snakeJs.js",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/Snake/snake.html",
+		"/C/Users/cex/Python Proyects/Pulga-B/pulga2.py",
+		"/C/Users/cex/Python Proyects/Pulga-B/main.py",
+		"/C/Users/cex/JavaScript Proyects/JonProyects/Proy Vanilla/JonAPIrestcountries/js/components/contenedorPais.js"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

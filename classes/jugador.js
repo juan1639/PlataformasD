@@ -9,14 +9,14 @@ import {
     marcadores
 } from "../constants.js";
 
-import { checkColision, playSonidos } from "../functions.js";
+import { checkColision, elNivelSuperado, playSonidos } from "../functions.js";
 
 export class Jugador {
     constructor(left, top) {
 
         jugadorImg.ssheet.src = './img/Ssheet_jugador.png';
 
-        this.plataformaMETA = -999;
+        this.plataformaMETA = -999; // Para asegurar que no supere el nivel antes de tiempo
 
         this.rect = {
             x: left,
@@ -36,6 +36,7 @@ export class Jugador {
             flip: false
         }
 
+        // (Poniendo los 4 atributos = 0 ... sería una colision estricta rectangular)
         this.correcciones = {
             obj1_hor: 0,
             obj1_ver: 0,
@@ -45,13 +46,13 @@ export class Jugador {
     }
 
     actualiza() {
-        // ----------------------------------------------
-        //  RESETs (scroll, dx, dy)
-        // ----------------------------------------------
+        // -----------------------------------------------
+        //  Lo primero, Resetear siempre (scroll, dx, dy)
+        // -----------------------------------------------
         scroll.scroll = 0;
         let dx = 0;
         let dy = 0;
-        // ----------------------------------------------
+        // -----------------------------------------------
 
         dx = this.leer_teclado(dx);
         
@@ -116,10 +117,13 @@ export class Jugador {
         // console.log(this.rect.y, this.plataformaMETA);
         if (estado.nivel_superado) return;
 
-        if (this.rect.y + this.rect.alto <= this.plataformaMETA && typeof this.rect.y === 'number') {
-            estado.nivel_superado = true;
-            playSonidos(sonidos.presentacion, false, 0.6);
+        if (this.rect.y + this.rect.alto <= this.plataformaMETA && typeof this.rect.y === 'number' && estado.contador_plataformas >= constante.plataformas_level_up) {
+
             console.log('nivel superado!');
+            estado.nivel_superado = true;
+            this.plataformaMETA = -999; // Para asegurar que no supere el nivel antes de tiempo
+            playSonidos(sonidos.presentacion, false, 0.6);
+            elNivelSuperado();
         }
     }
 
