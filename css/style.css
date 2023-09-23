@@ -192,11 +192,13 @@ BOTONES < CONTROLES & NUEVA PARTIDA >
 	0% {
 		padding-left: 7%;
 		padding-right: 7%;
+		background-color: royalblue;
 	}
 	
 	100% {
 		padding-left: 15%;
 		padding-right: 15%;
+		background-color: yellowgreen;
 	}
 }
 

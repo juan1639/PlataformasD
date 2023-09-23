@@ -37,6 +37,7 @@ import {
     playSonidos,
     reinstanciar_plataformas,
     dibuja_plataformas,
+    dibuja_bichos,
     rejugarNuevaPartida
 } from './functions.js';
 
@@ -194,6 +195,11 @@ function crea_bucle_principal() {
     setInterval(() => {
         bucle_principal();
     }, Math.floor(1000 / constante.fps));
+
+    // ---------------- Crea intervalo Animaciones (Bool) -----------
+    setInterval(() => {
+        estado.animas ? estado.animas = false : estado.animas = true;
+    }, 120);
 }
 
 // ----------------------------------------------------------------------
@@ -241,6 +247,7 @@ function bucle_principal() {
     if (objeto.jugador) scroll.scroll = objeto.jugador.actualiza();
     dibuja_scrolls(scroll.scroll_img, scroll.scroll_img2);
     dibuja_plataformas();
+    dibuja_bichos();
 
     if (objeto.jugador) objeto.jugador.dibuja(); 
 

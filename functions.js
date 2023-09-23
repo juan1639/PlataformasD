@@ -16,6 +16,10 @@ import {
     Plataforma
 } from './classes/plataforma.js';
 
+import {
+    Bichos
+} from './classes/bichos.js';
+
 // ----------------------------------------------------------------------------
 //  Funciones varias
 // ----------------------------------------------------------------------------
@@ -93,6 +97,37 @@ function reinstanciar_plataformas() {
 
         let plataforma = new Plataforma(x, y, ancho, velX_rnd, constante.bsx, constante.bsy);
         estado.plataformas_visibles.push(plataforma);
+
+        // ---------------------------------------------------------------
+        if (velX_rnd === 0) reinstanciar_bichosEnPlataformas(x, y, ancho);
+    }
+}
+
+// --------------------------------------------------------------------------
+//  Reinstanciar bichos en plataformas
+// --------------------------------------------------------------------------
+function reinstanciar_bichosEnPlataformas(x, y, ancho) {
+    const num_rnd = Math.floor(Math.random()* 99);
+
+    if (num_rnd > 7 + marcadores.nivel * 4) return;
+
+    const sizeX_bicho = 70;
+    const sizeY_bicho = 40;
+
+    let bicho = new Bichos(x, y, ancho, sizeX_bicho, sizeY_bicho, constante.bsx, constante.bsy);
+    estado.bichos_visibles.push(bicho);
+}
+
+// --------------------------------------------------------------------------
+//  Dibuja Bichos
+// --------------------------------------------------------------------------
+function dibuja_bichos() {
+    const nro_bichos= estado.bichos_visibles.length;
+
+    for (let i = 0; i < nro_bichos; i ++) {
+        let dibujaBicho = estado.bichos_visibles[i];
+        if (dibujaBicho) dibujaBicho.dibuja();
+        // console.log(dibujaBicho.rect.x, dibujaBicho.rect.y);
     }
 }
 
@@ -113,7 +148,7 @@ function elNivelSuperado() {
         marcadores.nivel ++;
         marcadores.scoreNivel.innerHTML = `Nivel: ${marcadores.nivel}`;
         marcadores.botonNextLevel.style.display = 'flex';
-    }, 5000);
+    }, 5800);
 }
 
 // ---------------------------------------------------------------------
@@ -264,6 +299,7 @@ export {
     playSonidos, 
     dibuja_scrolls,
     reinstanciar_plataformas, 
-    dibuja_plataformas
+    dibuja_plataformas,
+    dibuja_bichos
 };
 

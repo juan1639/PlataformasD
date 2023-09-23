@@ -63,6 +63,10 @@ const jugadorImg = {
     ssheet: new Image()
 }
 
+const bichoImg = {
+    ssheet: new Image()
+}
+
 const marcadores = {
     puntos: 0,
     nivel: 1,
@@ -87,6 +91,8 @@ const estado = {
     bucle_prejuego: null,
     contador_plataformas: 0,
     plataformas_visibles: [],
+    bichos_visibles: [],
+    animas: false,
     actual: -1,
     nivel_superado: false
 }
@@ -117,6 +123,7 @@ export {
     sonidos,
     plataformasImg, 
     jugadorImg,
+    bichoImg,
     controles, 
     pos_ini_jugador
 };
