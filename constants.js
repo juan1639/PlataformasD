@@ -71,7 +71,8 @@ const marcadores = {
     scoreNivel: document.getElementById('nivel'),
     scoreVidas: document.getElementById('vidas'),
     botonNewGame: document.getElementById('boton__newGame'),
-    contenedorControles: document.getElementById('contenedor2__botonesControl')
+    contenedorControles: document.getElementById('contenedor2__botonesControl'),
+    botonNextLevel: document.getElementById('boton__NextLevel'),
 }
 
 // ---------------------------------------------------------------------
@@ -105,10 +106,18 @@ const sonidos = {
 }
 
 export {
-    constante, objeto, scroll, 
-    canvas, ctx, marcadores, 
-    estado, colores, sonidos,
-    plataformasImg, jugadorImg,
-    controles, pos_ini_jugador
+    constante, 
+    objeto, 
+    scroll, 
+    canvas, 
+    ctx, 
+    marcadores, 
+    estado, 
+    colores, 
+    sonidos,
+    plataformasImg, 
+    jugadorImg,
+    controles, 
+    pos_ini_jugador
 };
 

@@ -9,7 +9,11 @@ import {
     marcadores
 } from "../constants.js";
 
-import { checkColision, elNivelSuperado, playSonidos } from "../functions.js";
+import { 
+    checkColision, 
+    elNivelSuperado, 
+    playSonidos 
+} from "../functions.js";
 
 export class Jugador {
     constructor(left, top) {

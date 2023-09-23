@@ -54,6 +54,12 @@ CONTENEDORES < SCORE & BOTONES CONTROLES >
 	justify-content: space-around;
 }
 
+.contenedor2__invisible {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .scores {
 	display: flex;
 }
@@ -116,6 +122,18 @@ BOTONES < CONTROLES & NUEVA PARTIDA >
 	box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.45);
 }
 
+.NextLevel {
+	display: none;
+	margin: 1% 0;
+	padding-left: 10%;
+	padding-right: 10%;
+	color: bisque;
+	background-color: royalblue;
+	text-shadow: 2px 2px 2px black;
+	box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.45);
+	animation: botonNextLevelAnima 1.0s steps(20) infinite;
+}
+
 .controles {
 	height: 90px;
 	color: black;
@@ -170,6 +188,18 @@ BOTONES < CONTROLES & NUEVA PARTIDA >
 	margin: 7% 0 0 0;
 }
 
+@keyframes botonNextLevelAnima {
+	0% {
+		padding-left: 7%;
+		padding-right: 7%;
+	}
+	
+	100% {
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+}
+
 /*---------------------------------------------------------
 RESPONSIVE
 ---------------------------------------------------------*/
@@ -191,6 +221,12 @@ RESPONSIVE
 		width: 90px;
 		font-size: 12px;
 		padding: 4px;
+	}
+
+	.NextLevel {
+		width: fit-content;
+		padding-left: 10%;
+		padding-right: 10%;
 	}
 
 	.botonesControl {
@@ -216,6 +252,12 @@ RESPONSIVE
 	.contenedor__main {
 		width: 425px;
 	}
+
+	.NextLevel {
+		width: fit-content;
+		padding-left: 10%;
+		padding-right: 10%;
+	}
 }
 
 @media (max-width: 424px) {
@@ -231,6 +273,16 @@ RESPONSIVE
 	.contenedor2 {
 		font-size: 16px;
 	}
+
+	.contenedor2__invisible {
+		font-size: 16px;
+	}
+
+	.NextLevel {
+		width: fit-content;
+		padding-left: 10%;
+		padding-right: 10%;
+	}
 }
 
 @media (max-width: 374px) {
@@ -245,5 +297,15 @@ RESPONSIVE
 
 	.contenedor2 {
 		font-size: 14px;
+	}
+
+	.contenedor2__invisible {
+		font-size: 14px;
+	}
+
+	.NextLevel {
+		width: fit-content;
+		padding-left: 10%;
+		padding-right: 10%;
 	}
 }

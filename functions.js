@@ -112,9 +112,8 @@ function elNivelSuperado() {
     setTimeout(() => {
         marcadores.nivel ++;
         marcadores.scoreNivel.innerHTML = `Nivel: ${marcadores.nivel}`;
-        estado.nivel_superado = false;
-        acciones_comunes_nivelSuperado_ReiniciarPartida();
-    }, 7000);
+        marcadores.botonNextLevel.style.display = 'flex';
+    }, 5000);
 }
 
 // ---------------------------------------------------------------------
@@ -253,10 +252,18 @@ function laPresentacion(animaPacMan) {
 }
 
 export {
-	checkColision, elNivelSuperado,
-	rejugarNuevaPartida, elGameOver, mostrarMarcadores,
-	reescalaCanvas, borraCanvas, laPresentacion,
-    playSonidos, dibuja_scrolls,
-    reinstanciar_plataformas, dibuja_plataformas
+	checkColision, 
+    elNivelSuperado,
+    acciones_comunes_nivelSuperado_ReiniciarPartida,
+	rejugarNuevaPartida, 
+    elGameOver, 
+    mostrarMarcadores,
+	reescalaCanvas, 
+    borraCanvas, 
+    laPresentacion,
+    playSonidos, 
+    dibuja_scrolls,
+    reinstanciar_plataformas, 
+    dibuja_plataformas
 };
 

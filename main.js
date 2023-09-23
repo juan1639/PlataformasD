@@ -27,7 +27,8 @@ import { Jugador } from './classes/jugador.js';
 import {
     dibuja_scrolls,  
     checkColision,
-    elNivelSuperado, 
+    elNivelSuperado,
+    acciones_comunes_nivelSuperado_ReiniciarPartida,
     elGameOver, 
     mostrarMarcadores,
     reescalaCanvas, 
@@ -72,6 +73,14 @@ document.addEventListener('touchstart', (event) => {
 
         } else {
             console.log('...');
+        }
+    }
+
+    if (estado.nivel_superado) {
+        if (touch === 'boton__NextLevel') {
+            estado.nivel_superado = false;
+            acciones_comunes_nivelSuperado_ReiniciarPartida();
+            marcadores.botonNextLevel.style.display = 'none';
         }
     }
 });
@@ -168,6 +177,14 @@ document.addEventListener('click', (event) => {
             estado.actual = 0;  // En juego
             marcadores.botonNewGame.style.display = 'none';
             rejugarNuevaPartida();
+        }
+    }
+
+    if (estado.nivel_superado) {
+        if (event.target.id === 'boton__NextLevel') {
+            estado.nivel_superado = false;
+            acciones_comunes_nivelSuperado_ReiniciarPartida();
+            marcadores.botonNextLevel.style.display = 'none';
         }
     }
 });
