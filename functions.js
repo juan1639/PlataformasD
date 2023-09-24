@@ -20,6 +20,10 @@ import {
     Bichos
 } from './classes/bichos.js';
 
+import {
+    Pajaros
+} from './classes/pajaros.js';
+
 // ----------------------------------------------------------------------------
 //  Funciones varias
 // ----------------------------------------------------------------------------
@@ -99,6 +103,7 @@ function reinstanciar_plataformas() {
         estado.plataformas_visibles.push(plataforma);
 
         // ---------------------------------------------------------------
+        reinstanciar_pajaros();
         if (velX_rnd === 0 && ancho > 2) reinstanciar_bichosEnPlataformas(x, y, ancho);
     }
 }
@@ -127,6 +132,34 @@ function dibuja_bichos() {
     for (let i = 0; i < nro_bichos; i ++) {
         let dibujaBicho = estado.bichos_visibles[i];
         if (dibujaBicho) dibujaBicho.dibuja();
+        // console.log(dibujaBicho.rect.x, dibujaBicho.rect.y);
+    }
+}
+
+// --------------------------------------------------------------------------
+//  Reinstanciar pajaros
+// --------------------------------------------------------------------------
+function reinstanciar_pajaros() {
+    const num_rnd = Math.floor(Math.random()* 99);
+
+    if (num_rnd > 7 + marcadores.nivel * 4) return;
+
+    const sizeX_pajaro = 80;
+    const sizeY_pajaro = 90;
+
+    let pajaro = new Pajaros(sizeX_pajaro, sizeY_pajaro, constante.bsx, constante.bsy);
+    estado.pajaros_visibles.push(pajaro);
+}
+
+// --------------------------------------------------------------------------
+//  Dibuja Pajaros
+// --------------------------------------------------------------------------
+function dibuja_pajaros() {
+    const nro_pajaros = estado.pajaros_visibles.length;
+
+    for (let i = 0; i < nro_pajaros; i ++) {
+        let dibujaPajaro = estado.pajaros_visibles[i];
+        if (dibujaPajaro) dibujaPajaro.dibuja();
         // console.log(dibujaBicho.rect.x, dibujaBicho.rect.y);
     }
 }
@@ -311,6 +344,7 @@ export {
     dibuja_scrolls,
     reinstanciar_plataformas, 
     dibuja_plataformas,
-    dibuja_bichos
+    dibuja_bichos,
+    dibuja_pajaros
 };
 

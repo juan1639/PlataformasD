@@ -107,7 +107,7 @@ export class Bichos {
     elegir_bicho_rnd(rango) {
         const rnd_bicho = Math.floor(Math.random() * rango);
 
-        if (rnd_bicho < 95) {
+        if (rnd_bicho < 30) {
             return [5, 825, 5, 955];
         }
 

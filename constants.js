@@ -64,7 +64,8 @@ const jugadorImg = {
 }
 
 const bichoImg = {
-    ssheet: new Image()
+    ssheet: new Image(),
+    pajaroSsheet: new Image(),
 }
 
 const marcadores = {
@@ -92,7 +93,9 @@ const estado = {
     contador_plataformas: 0,
     plataformas_visibles: [],
     bichos_visibles: [],
+    pajaros_visibles: [],
     animas: false,
+    animaAleteo: 0,
     actual: -1,
     nivel_superado: false
 }
