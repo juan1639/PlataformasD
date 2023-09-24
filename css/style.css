@@ -247,12 +247,12 @@ RESPONSIVE
 
 @media (max-width: 599px) {
 	#canvas {
-		width: 425px;
+		width: 420px;
 		height: 320px;
 	}
 
 	.contenedor__main {
-		width: 425px;
+		width: 420px;
 	}
 
 	.NextLevel {
@@ -264,12 +264,12 @@ RESPONSIVE
 
 @media (max-width: 424px) {
 	#canvas {
-		width: 375px;
+		width: 360px;
 		height: 320px;
 	}
 
 	.contenedor__main {
-		width: 375px;
+		width: 360px;
 	}
 
 	.contenedor2 {
@@ -289,12 +289,12 @@ RESPONSIVE
 
 @media (max-width: 374px) {
 	#canvas {
-		width: 320px;
+		width: 310px;
 		height: 320px;
 	}
 
 	.contenedor__main {
-		width: 320px;
+		width: 310px;
 	}
 
 	.contenedor2 {

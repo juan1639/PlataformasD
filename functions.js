@@ -99,7 +99,7 @@ function reinstanciar_plataformas() {
         estado.plataformas_visibles.push(plataforma);
 
         // ---------------------------------------------------------------
-        if (velX_rnd === 0) reinstanciar_bichosEnPlataformas(x, y, ancho);
+        if (velX_rnd === 0 && ancho > 2) reinstanciar_bichosEnPlataformas(x, y, ancho);
     }
 }
 
@@ -165,11 +165,23 @@ function rejugarNuevaPartida() {
 
 // -------------------------------------------------------------------------
 function acciones_comunes_nivelSuperado_ReiniciarPartida() {
+    const noche = Math.floor(Math.random() * 99);
+
+    if (marcadores.nivel > 1 && noche < 20) {
+        scroll.scroll_img.src = './img/fondo_noche1.png';
+        scroll.scroll_img2.src = './img/fondo_noche2.png';
+
+    } else {
+        scroll.scroll_img.src = './img/fondo_cielo1.png';
+        scroll.scroll_img2.src = './img/fondo_cielo2.png';
+    }
+
     objeto.jugador.rect.x = pos_ini_jugador.x;
     objeto.jugador.rect.y = pos_ini_jugador.y;
     objeto.jugador.move.acelX = 0.0;
     objeto.jugador.move.velY = -20;
 
+    estado.bichos_visibles = [];
     estado.plataformas_visibles = [];
     estado.contador_plataformas = 0;
 
@@ -184,7 +196,6 @@ function acciones_comunes_nivelSuperado_ReiniciarPartida() {
     
     estado.plataformas_visibles.push(plataforma);
 }
-
 
 // -------------------------------------------------------------------------
 function elGameOver() {

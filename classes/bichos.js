@@ -17,13 +17,14 @@ export class Bichos {
 
         bichoImg.ssheet.src = './img/Ssheet_platD.png';
 
+        let clipsXY = this.elegir_bicho_rnd(99);
+
         this.rect = {
             x: left * tx,
             y: top * ty - h,
             ancho: w,
             alto: h,
-            clipX: 0,
-            clipY: 0,
+            clip: clipsXY,
             clipAncho: 112,
             clipAlto: 72
         }
@@ -77,11 +78,11 @@ export class Bichos {
             }
 
             if (estado.animas) {
-                ctx.drawImage(bichoImg.ssheet, 265, 315, this.rect.clipAncho, this.rect.clipAlto, 
+                ctx.drawImage(bichoImg.ssheet, this.rect.clip[0], this.rect.clip[1], this.rect.clipAncho, this.rect.clipAlto, 
                     this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
             
             } else {
-                ctx.drawImage(bichoImg.ssheet, 265, 575, this.rect.clipAncho, this.rect.clipAlto, 
+                ctx.drawImage(bichoImg.ssheet, this.rect.clip[2], this.rect.clip[3], this.rect.clipAncho, this.rect.clipAlto, 
                     this.rect.x, this.rect.y, this.rect.ancho, this.rect.alto);
             }
 
@@ -101,5 +102,15 @@ export class Bichos {
         }
 
         return dy;
+    }
+
+    elegir_bicho_rnd(rango) {
+        const rnd_bicho = Math.floor(Math.random() * rango);
+
+        if (rnd_bicho < 95) {
+            return [5, 825, 5, 955];
+        }
+
+        return [265, 315, 265, 575];
     }
 }
